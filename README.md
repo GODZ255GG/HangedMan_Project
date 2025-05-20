@@ -21,7 +21,7 @@ Este repositorio contiene el proyecto final de la materia "Tecnologías para la 
 - SQL Server 2016+  
 
 ## Equipo  
-Proyecto desarrollado por [Nombres de los integrantes] para la carrera de Ingeniería de Software.  
+Proyecto desarrollado por René Ulises García Velázquez y Álvaro L;opez Martínez para la carrera de Ingeniería de Software.  
 
 **Fecha de entrega**: Julio 2025  
 
