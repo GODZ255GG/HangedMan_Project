@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HangedMan_Client2
+namespace HangedMan_Client.Views
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para RegisterView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegisterView : Window
     {
-        public MainWindow()
+        public RegisterView()
         {
             InitializeComponent();
         }
