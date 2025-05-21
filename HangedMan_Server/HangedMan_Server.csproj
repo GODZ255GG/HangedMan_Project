@@ -62,24 +62,24 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Service1.svc" />
+    <Content Include="PlayerServices.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\ConnectionDB.cs" />
+    <Compile Include="Model\DTO\PlayerDTO.cs" />
     <Compile Include="Model\POCO\Category.cs" />
     <Compile Include="Model\POCO\Match.cs" />
     <Compile Include="Model\POCO\Player.cs" />
     <Compile Include="Model\POCO\Word.cs" />
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
+    <Compile Include="PlayerServices.svc.cs">
+      <DependentUpon>PlayerServices.svc</DependentUpon>
     </Compile>
-    <Compile Include="IService1.cs" />
+    <Compile Include="IPlayerServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Model\DTO\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
@@ -88,6 +88,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
