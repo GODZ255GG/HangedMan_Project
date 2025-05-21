@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="PlayerServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:56216/PlayerServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:56216/PlayerServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:56216/PlayerServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HangedMan_Server.Model.POCO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPlayerServices_registerPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:registerPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_registerPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:registerPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_emailAlreadyRegistered_InputMessage">
+    <wsdl:part name="parameters" element="tns:emailAlreadyRegistered" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_emailAlreadyRegistered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:emailAlreadyRegisteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_nicknameAlreadyRegistered_InputMessage">
+    <wsdl:part name="parameters" element="tns:nicknameAlreadyRegistered" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_nicknameAlreadyRegistered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:nicknameAlreadyRegisteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_telephoneAlreadyExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:telephoneAlreadyExist" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_telephoneAlreadyExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:telephoneAlreadyExistResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPlayerServices">
+    <wsdl:operation name="registerPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/registerPlayer" message="tns:IPlayerServices_registerPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/registerPlayerResponse" message="tns:IPlayerServices_registerPlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="emailAlreadyRegistered">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/emailAlreadyRegistered" message="tns:IPlayerServices_emailAlreadyRegistered_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/emailAlreadyRegisteredResponse" message="tns:IPlayerServices_emailAlreadyRegistered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="nicknameAlreadyRegistered">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/nicknameAlreadyRegistered" message="tns:IPlayerServices_nicknameAlreadyRegistered_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/nicknameAlreadyRegisteredResponse" message="tns:IPlayerServices_nicknameAlreadyRegistered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="telephoneAlreadyExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/telephoneAlreadyExist" message="tns:IPlayerServices_telephoneAlreadyExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/telephoneAlreadyExistResponse" message="tns:IPlayerServices_telephoneAlreadyExist_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPlayerServices" type="tns:IPlayerServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="registerPlayer">
+      <soap:operation soapAction="http://tempuri.org/IPlayerServices/registerPlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="emailAlreadyRegistered">
+      <soap:operation soapAction="http://tempuri.org/IPlayerServices/emailAlreadyRegistered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="nicknameAlreadyRegistered">
+      <soap:operation soapAction="http://tempuri.org/IPlayerServices/nicknameAlreadyRegistered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="telephoneAlreadyExist">
+      <soap:operation soapAction="http://tempuri.org/IPlayerServices/telephoneAlreadyExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PlayerServices">
+    <wsdl:port name="BasicHttpBinding_IPlayerServices" binding="tns:BasicHttpBinding_IPlayerServices">
+      <soap:address location="http://localhost:56216/PlayerServices.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
