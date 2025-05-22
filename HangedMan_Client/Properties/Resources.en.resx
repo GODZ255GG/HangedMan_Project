@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BackButton" xml:space="preserve">
-    <value>Return</value>
+    <value> Back to Login</value>
   </data>
   <data name="BirthDateRegister" xml:space="preserve">
     <value>Birth date</value>
@@ -261,6 +261,9 @@
   <data name="LabelBirthDateEmpty" xml:space="preserve">
     <value>Please select your birth date</value>
   </data>
+  <data name="labelCreateNewAccount" xml:space="preserve">
+    <value>Create new account</value>
+  </data>
   <data name="LabelEmailEmpty" xml:space="preserve">
     <value>Please enter an email</value>
   </data>
@@ -394,7 +397,7 @@
     <value>Your profile</value>
   </data>
   <data name="RegisterButton" xml:space="preserve">
-    <value>Sign in</value>
+    <value>Create an account</value>
   </data>
   <data name="SecondNameRegister" xml:space="preserve">
     <value>Second name</value>

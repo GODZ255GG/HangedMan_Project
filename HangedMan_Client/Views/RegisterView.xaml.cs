@@ -3,6 +3,7 @@ using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace HangedMan_Client.Views
 {
@@ -13,11 +14,11 @@ namespace HangedMan_Client.Views
     {
         PlayerServicesClient playerServicesClient = new PlayerServicesClient();
         private MainWindow mainWindow;
-        public RegisterView(MainWindow mainWindow)
+        public RegisterView(MainWindow window)
         {
             InitializeComponent();
             disableErrorLabels();
-            this.mainWindow = mainWindow;
+            this.mainWindow = window;
         }
 
         private bool checkData()
@@ -314,14 +315,73 @@ namespace HangedMan_Client.Views
             }
         }
 
-        private void ChangeEnglish_Click(object sender, RoutedEventArgs e)
+        private void BtnChangeEnglish_Click(object sender, RoutedEventArgs e)
         {
+            btnChangeEnglish.Tag = "Selected";
+            btnChangeSpanish.Tag = null;
             mainWindow.changeLanguage("en");
         }
 
-        private void ChangeSpanish_Click(object sender, RoutedEventArgs e)
+        private void BtnChangeSpanish_Click(object sender, RoutedEventArgs e)
         {
+            btnChangeSpanish.Tag = "Selected";
+            btnChangeEnglish.Tag = null;
             mainWindow.changeLanguage("es");
+        }
+
+        public void UpdateLanguageResources()
+        {
+            //Subtitulo
+            lblSubtitle.Content = Properties.Resources.labelCreateNewAccount;
+
+            // Botones de idioma
+            btnChangeEnglish.Content = Properties.Resources.EnglishButton;
+            btnChangeSpanish.Content = Properties.Resources.SpanishButton;
+
+            // Columna Izquierda
+            lblEmail.Content = Properties.Resources.EmailRegister;
+            labelEmailEmpty.Content = Properties.Resources.LabelEmailEmpty;
+
+            lblNames.Content = Properties.Resources.NamesRegister;
+            labelNamesEmpty.Content = Properties.Resources.LabelNamesEmpty;
+
+            lblFirstSurname.Content = Properties.Resources.FirstNameRegister;
+            labelFirstSurnameEmpty.Content = Properties.Resources.LabelFirstSurnameEmpty;
+
+            lblPassword.Content = Properties.Resources.PasswordRegister;
+            labelPasswordEmpty.Content = Properties.Resources.LabelPasswordEmpty;
+
+            // Columna Derecha
+            lblNickname.Content = Properties.Resources.NickNameRegister;
+            labelNicknameEmpty.Content = Properties.Resources.LabelNickEmpty;
+
+            lblSecondSurname.Content = Properties.Resources.SecondNameRegister;
+            labelSecondSurnameEmpty.Content = Properties.Resources.LabelSecondSurnameEmpty;
+
+            lblTelephone.Content = Properties.Resources.TelephoneRegister;
+            labelTelephoneEmpty.Content = Properties.Resources.LabelTelephoneEmpty;
+
+            lblPasswordConfirmation.Content = Properties.Resources.PasswordConfirmationRegister;
+            labelPasswordConfirmationEmpty.Content = Properties.Resources.LabelPaswwordConfirmationEmpty;
+
+            // Sección inferior
+            lblBirthDate.Content = Properties.Resources.BirthDateRegister;
+            labelBirthDateEmpty.Content = Properties.Resources.LabelBirthDateEmpty;
+
+            // Botones de acción
+            btnRegister.Content = Properties.Resources.RegisterButton;
+            btnBack.Content = Properties.Resources.BackButton;
+        }
+
+        public void UpdateButtonColors(bool englishSelected)
+        {
+            btnChangeEnglish.Background = englishSelected ?
+            (SolidColorBrush)new BrushConverter().ConvertFrom("#FF252526") :
+            (SolidColorBrush)new BrushConverter().ConvertFrom("#FF007ACC");
+
+            btnChangeSpanish.Background = !englishSelected ?
+                (SolidColorBrush)new BrushConverter().ConvertFrom("#FF252526") :
+                (SolidColorBrush)new BrushConverter().ConvertFrom("#FF007ACC");
         }
     }
 }

@@ -23,7 +23,6 @@ namespace HangedMan_Client
         public MainWindow()
         {
             InitializeComponent();
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
             goToRegisterView();
 
         }
@@ -36,7 +35,17 @@ namespace HangedMan_Client
         public void changeLanguage(string cultureCode)
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cultureCode);
-            this.frame.Navigate(new RegisterView(this));
+
+            // Guardar el estado actual de los botones
+            var currentView = frame.Content as RegisterView;
+            bool wasEnglishSelected = currentView?.btnChangeEnglish.Background.ToString() == "#FF007ACC";
+
+            // Actualizar la vista existente
+            if (currentView != null)
+            {
+                currentView.UpdateLanguageResources();
+                currentView.UpdateButtonColors(wasEnglishSelected);
+            }
         }
     }
 }

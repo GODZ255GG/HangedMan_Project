@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HangedMan_Client"
         xmlns:p="clr-namespace:HangedMan_Client.Properties"
         mc:Ignorable="d"
-        Title="{x:Static p:Resources.Tittle}" Width="1200" Height="900"
+        Title="{x:Static p:Resources.Tittle}" Width="1200" Height="980"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Frame x:Name="frame" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
