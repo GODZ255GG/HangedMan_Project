@@ -118,336 +118,336 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BackButton" xml:space="preserve">
-    <value>Volver</value>
+    <value>Return</value>
   </data>
   <data name="BirthDateRegister" xml:space="preserve">
-    <value>Fecha de nacimiento</value>
+    <value>Birth date</value>
   </data>
   <data name="CancelCreateMatchButton" xml:space="preserve">
-    <value>Cancelar</value>
+    <value>Cancel</value>
   </data>
   <data name="CancelCreateMatchMessage" xml:space="preserve">
-    <value>Deseas cancelar la creacion de la partida? </value>
+    <value>Do you want to cancel the creation of the game?</value>
   </data>
   <data name="CancelModifyConfirmation" xml:space="preserve">
-    <value>Salir sin guardar los cambios?</value>
+    <value>Exit without save changes?</value>
   </data>
   <data name="CancelModifyHead" xml:space="preserve">
-    <value>Cancelar modificacion</value>
+    <value>Exit</value>
   </data>
   <data name="CancelRegisterButton" xml:space="preserve">
-    <value>Cancelar </value>
+    <value>Cancel</value>
   </data>
   <data name="CategoriesCreateMatch" xml:space="preserve">
-    <value>Categorias</value>
+    <value>Categories</value>
   </data>
   <data name="ChallengerLeaveMatchMessage" xml:space="preserve">
-    <value>El retador ha dejado el juego</value>
+    <value>The challenger has left the game</value>
   </data>
   <data name="ConfirmationMessage" xml:space="preserve">
-    <value>Confirmacion</value>
+    <value>Confirmation</value>
   </data>
   <data name="ConfirmationModify" xml:space="preserve">
-    <value>Se ha modificato tu perfil</value>
+    <value>Profile modified</value>
   </data>
   <data name="ConfirmationUserRegister" xml:space="preserve">
-    <value>Se ha registrado en el juego!</value>
+    <value>You have registered in the game!</value>
   </data>
   <data name="CreateAccountButton" xml:space="preserve">
-    <value>Crear cuenta</value>
+    <value>Create account</value>
   </data>
   <data name="CreateMatch" xml:space="preserve">
-    <value>Crear partida</value>
+    <value>Create match</value>
   </data>
   <data name="CreateMatchButton" xml:space="preserve">
-    <value>Crear partida</value>
+    <value>Create match</value>
   </data>
   <data name="DataGridColumnChallengerDefeat" xml:space="preserve">
-    <value>Jugador derrotado</value>
+    <value>Defeated player</value>
   </data>
   <data name="DataGridColumnDate" xml:space="preserve">
-    <value>Fecha de la partida</value>
+    <value>Date of match</value>
   </data>
   <data name="DataGridColumnEmail" xml:space="preserve">
-    <value>Correo</value>
+    <value>Email</value>
   </data>
   <data name="DataGridColumnJoin" xml:space="preserve">
-    <value>Unirse</value>
+    <value>Join</value>
   </data>
   <data name="DataGridColumnNickName" xml:space="preserve">
     <value>NickName</value>
   </data>
   <data name="EmailAlreadyRegistered" xml:space="preserve">
-    <value>El correo ya se encuentra registrado</value>
+    <value>The email is already registered</value>
   </data>
   <data name="EmailLoggin" xml:space="preserve">
-    <value>Correo</value>
+    <value>Email</value>
   </data>
   <data name="EmailNotValid" xml:space="preserve">
-    <value>Por favor ingresa un correo valido</value>
+    <value>Please enter a valid email</value>
   </data>
   <data name="EmailRegister" xml:space="preserve">
-    <value>Correo</value>
+    <value>Email</value>
   </data>
   <data name="EnglishButton" xml:space="preserve">
-    <value>Ingles</value>
+    <value>English</value>
   </data>
   <data name="EnglishComboItem" xml:space="preserve">
-    <value>Ingles</value>
+    <value>English</value>
   </data>
   <data name="EnglishLanguage" xml:space="preserve">
-    <value>Inglés</value>
+    <value>English</value>
   </data>
   <data name="ErrorLoadingHistory" xml:space="preserve">
-    <value>Error al cargar el historial</value>
+    <value>Error Loading History</value>
   </data>
   <data name="ErrorLoadingMatches" xml:space="preserve">
-    <value>Error al cargar las partidas</value>
+    <value>Error Loading Matches</value>
   </data>
   <data name="ErrorLogginMessage" xml:space="preserve">
-    <value>Contrasena y/o email incorrectos!</value>
+    <value>Wrong email or password!</value>
   </data>
   <data name="ErrorModify" xml:space="preserve">
-    <value>Error al modificar el perfil</value>
+    <value>Modify error</value>
   </data>
   <data name="ErrorTitle" xml:space="preserve">
-    <value>Error Titulo</value>
+    <value>Error Title</value>
   </data>
   <data name="ErrorUserRegister" xml:space="preserve">
-    <value>Error! no se pudo registrar el usuario</value>
+    <value>Mistake! user could not be registered</value>
   </data>
   <data name="ExitGameButton" xml:space="preserve">
-    <value>Salir</value>
+    <value>Exit</value>
   </data>
   <data name="FirstNameRegister" xml:space="preserve">
-    <value>Apellido paterno</value>
+    <value>Name</value>
   </data>
   <data name="GameLanguageLabel" xml:space="preserve">
-    <value>Selecciona el idioma de la palabra</value>
+    <value>Select the language of the word</value>
   </data>
   <data name="GuestLeaveMatchMessage" xml:space="preserve">
-    <value>El adivinador ha dejado el juego!</value>
+    <value>The guest left the game!</value>
   </data>
   <data name="HangmanTittle" xml:space="preserve">
-    <value>Ahorcado</value>
+    <value>Hangman Game</value>
   </data>
   <data name="HistoryColumnDate" xml:space="preserve">
-    <value>Fecha</value>
+    <value>Date</value>
   </data>
   <data name="HistoryColumnLanguage" xml:space="preserve">
-    <value>Idioma</value>
+    <value>Language</value>
   </data>
   <data name="HistoryColumnOpponent" xml:space="preserve">
-    <value>Oponente</value>
+    <value>Opponent</value>
   </data>
   <data name="HistoryColumnResult" xml:space="preserve">
-    <value>Resultado</value>
+    <value>Result</value>
   </data>
   <data name="HistoryColumnWord" xml:space="preserve">
-    <value>Palabra</value>
+    <value>Word</value>
   </data>
   <data name="IncompleteLogginMessage" xml:space="preserve">
-    <value>Por favor ingresa todos los datos!</value>
+    <value>Please enter all the data!</value>
   </data>
   <data name="IntroButton" xml:space="preserve">
-    <value>Ingresar</value>
+    <value>Enter</value>
   </data>
   <data name="JoinGameMessage" xml:space="preserve">
-    <value>Te has unido a la partida!</value>
+    <value>You joined!</value>
   </data>
   <data name="JoinMatchErrorMessage" xml:space="preserve">
-    <value>Error al unirse a la partida</value>
+    <value>Error when joining the game</value>
   </data>
   <data name="LabelBirthDateEmpty" xml:space="preserve">
-    <value>Por favor selecciona la fecha de tu nacimiento</value>
+    <value>Please select your birth date</value>
   </data>
   <data name="LabelEmailEmpty" xml:space="preserve">
-    <value>Por favor ingresa tu correo electronico</value>
+    <value>Please enter an email</value>
   </data>
   <data name="LabelFirstSurnameEmpty" xml:space="preserve">
-    <value>Por favor ingresa tus apellido paterno</value>
+    <value>Please enter your first surname</value>
   </data>
   <data name="LabelNamesEmpty" xml:space="preserve">
-    <value>Por favor ingresa tus nombres</value>
+    <value>Please enter your name</value>
   </data>
   <data name="LabelNickEmpty" xml:space="preserve">
-    <value>Por favor ingresa tu nickname</value>
+    <value>Please enter a nickname</value>
   </data>
   <data name="LabelPasswordEmpty" xml:space="preserve">
-    <value>Por favor ingresa tu contraseña</value>
+    <value>Please enter a password</value>
   </data>
   <data name="LabelPaswwordConfirmationEmpty" xml:space="preserve">
-    <value>Por favor vuelve a ingresa tu contraseña</value>
+    <value>Please re enter a password </value>
   </data>
   <data name="LabelPointsEarned" xml:space="preserve">
-    <value>Puntos obtenidos: </value>
+    <value>Points earned: </value>
   </data>
   <data name="LabelSecondSurnameEmpty" xml:space="preserve">
-    <value>Por favor ingresa tu apellido materno</value>
+    <value>Please enter your second surname </value>
   </data>
   <data name="LabelTelephoneEmpty" xml:space="preserve">
-    <value>Por favor ingresa tu numero de telefono </value>
+    <value>Please enter your telephone</value>
   </data>
   <data name="LeaveMatchButton" xml:space="preserve">
-    <value>Abandonar partida</value>
+    <value>Leave match</value>
   </data>
   <data name="LeaveMatchConfirmation" xml:space="preserve">
-    <value>Deseas abandonar el juego? </value>
+    <value>Do you want to leave the game?</value>
   </data>
   <data name="LobbyLabel" xml:space="preserve">
-    <value>Partidas disponibles</value>
+    <value>Available games</value>
   </data>
   <data name="LogginMessage" xml:space="preserve">
-    <value>Bienvenido al juego</value>
+    <value>Welcome to the game</value>
   </data>
   <data name="LoginLabel" xml:space="preserve">
-    <value>Inicia Sesión</value>
+    <value>LogIn</value>
   </data>
   <data name="LogOutButton" xml:space="preserve">
-    <value>Cerrar sesion</value>
+    <value>Log out</value>
   </data>
   <data name="LogOutMessage" xml:space="preserve">
-    <value>Deseas salir del juego? </value>
+    <value>Do you want to exit the game?</value>
   </data>
   <data name="LosserChallengerMessage" xml:space="preserve">
-    <value>El invitado adivino la palabra, perdiste!</value>
+    <value>Guest guessed the word, you lost!</value>
   </data>
   <data name="LosserMatchMessage" xml:space="preserve">
-    <value>Perdiste!</value>
+    <value>You lose!</value>
   </data>
   <data name="LostYouLeft" xml:space="preserve">
-    <value>Pertida (tú abandonaste)</value>
+    <value>Lost (you left)</value>
   </data>
   <data name="MatchAbandoned" xml:space="preserve">
-    <value>Abandonada</value>
+    <value>Abandoned</value>
   </data>
   <data name="MatchCreatedMessage" xml:space="preserve">
-    <value>Partida creada!</value>
+    <value>Game created!</value>
   </data>
   <data name="MatchHistoryButton" xml:space="preserve">
-    <value>Historial</value>
+    <value>Match history</value>
   </data>
   <data name="MatchHistoryLabel" xml:space="preserve">
-    <value>Historial de Partidas</value>
+    <value>Match history</value>
   </data>
   <data name="MatchIncomplete" xml:space="preserve">
-    <value>Incompleto</value>
+    <value>Incomplete</value>
   </data>
   <data name="MatchLanguage" xml:space="preserve">
-    <value>Idioma de la partida</value>
+    <value>Match language</value>
   </data>
   <data name="MatchLeaveMessage" xml:space="preserve">
-    <value>Has abandonado la partida</value>
+    <value>You have abandoned the game</value>
   </data>
   <data name="MatchLeaveMessageError" xml:space="preserve">
-    <value>Error al abandonar la partida</value>
+    <value>Error!</value>
   </data>
   <data name="MatchLost" xml:space="preserve">
-    <value>Perdida</value>
+    <value>Lost</value>
   </data>
   <data name="MatchWon" xml:space="preserve">
-    <value>Ganada</value>
+    <value>Won</value>
   </data>
   <data name="ModifyProfileButton" xml:space="preserve">
-    <value>Modificar</value>
+    <value>Modify</value>
   </data>
   <data name="NamesNotValid" xml:space="preserve">
-    <value>Por favor comprueba tu nombre o apellidos y no uses acentos</value>
+    <value>Please check your first or last name and do not use accents.</value>
   </data>
   <data name="NamesRegister" xml:space="preserve">
-    <value>Nombres</value>
+    <value>Names</value>
   </data>
   <data name="NicknameAlreadyRegistered" xml:space="preserve">
-    <value>El nickname ya se encuentra registrado</value>
+    <value>The nickname is already registered</value>
   </data>
   <data name="NicknameNotValid" xml:space="preserve">
-    <value>Por favor ingresa un nickname valido, solo puede contener letras y numeros</value>
+    <value>Please enter a valid nickname, only numbers and letters</value>
   </data>
   <data name="NickNameRegister" xml:space="preserve">
     <value>Nickname</value>
   </data>
   <data name="PasswordConfirmationRegister" xml:space="preserve">
-    <value>Confirmar contrasena</value>
+    <value>Confirm password</value>
   </data>
   <data name="PasswordDoesntMatch" xml:space="preserve">
-    <value>Las contraseñas no coinciden!</value>
+    <value>Passwords don't match!</value>
   </data>
   <data name="PasswordLoggin" xml:space="preserve">
-    <value>Contraseña</value>
+    <value>Password</value>
   </data>
   <data name="PasswordNotValid" xml:space="preserve">
-    <value>La contraseña debe de tener entre 8 y 15 caracteres y solo puede contener letras y numeros</value>
+    <value>The password must be between 8 and 15 characters and can only contain letters and numbers</value>
   </data>
   <data name="PasswordRegister" xml:space="preserve">
-    <value>Contraseña</value>
+    <value>Password</value>
   </data>
   <data name="PhoneNotValid" xml:space="preserve">
-    <value>Por favor ingresa un telefono valido</value>
+    <value>Please enter a valid phone</value>
   </data>
   <data name="PhoneNumberRegister" xml:space="preserve">
-    <value>Numero de telefono</value>
+    <value>Phone number</value>
   </data>
   <data name="PlayerJoinedMessage" xml:space="preserve">
-    <value>Otro jugador se ha unido!</value>
+    <value>Other player has joined!</value>
   </data>
   <data name="ProfileViewLabel" xml:space="preserve">
-    <value>Tu perfil del jugador</value>
+    <value>Your profile</value>
   </data>
   <data name="RegisterButton" xml:space="preserve">
-    <value>Registrarse</value>
+    <value>Sign in</value>
   </data>
   <data name="SecondNameRegister" xml:space="preserve">
-    <value>Apellido materno</value>
+    <value>Second name</value>
   </data>
   <data name="SelectWordCreateMatch" xml:space="preserve">
-    <value>Selecciona la palabra </value>
+    <value>Select the word</value>
   </data>
   <data name="SpanishButton" xml:space="preserve">
-    <value>Espanol</value>
+    <value>Spanish</value>
   </data>
   <data name="SpanishComboItem" xml:space="preserve">
-    <value>Espanol</value>
+    <value>Spanish</value>
   </data>
   <data name="SpanishLanguage" xml:space="preserve">
-    <value>Español</value>
+    <value>Spanish</value>
   </data>
   <data name="TelephoneAlreadyRegistered" xml:space="preserve">
-    <value>El telefono ya se encuentra registrado</value>
+    <value>The telephone is already registered</value>
   </data>
   <data name="TelephoneRegister" xml:space="preserve">
-    <value>Telefono</value>
+    <value>Phone</value>
   </data>
   <data name="Tittle" xml:space="preserve">
-    <value>Juego ahorcado</value>
+    <value>Game</value>
   </data>
   <data name="UnknownLanguage" xml:space="preserve">
-    <value>Idioma desconocido</value>
+    <value>Unknown Language</value>
   </data>
   <data name="UserRegisterLabel" xml:space="preserve">
-    <value>No tienes una cuenta? Crea una!</value>
+    <value>Don't have an account? create one!</value>
   </data>
   <data name="ViewProfileButton" xml:space="preserve">
-    <value>Ver Perfil</value>
+    <value>View Profile</value>
   </data>
   <data name="WaitGuestMessage" xml:space="preserve">
-    <value>Esperando a otro jugador</value>
+    <value>Waiting for another player</value>
   </data>
   <data name="WaitingForPlayer" xml:space="preserve">
-    <value>Esperando jugador</value>
+    <value>Waiting for player</value>
   </data>
   <data name="WarningCreateMatch" xml:space="preserve">
-    <value>Por favor selecciona la categoria y la palabra!</value>
+    <value>Please select the category and word!</value>
   </data>
   <data name="WinnerMatchMessageChallenger" xml:space="preserve">
-    <value>El invitado no adivino la palabra, ganaste!</value>
+    <value>You win!</value>
   </data>
   <data name="WinnerMatchMessageGuest" xml:space="preserve">
-    <value>Adivinaste la palabra, Ganaste!</value>
+    <value>You win!</value>
   </data>
   <data name="WonOpponentLeft" xml:space="preserve">
-    <value>Ganada (oponente abandonó)</value>
+    <value>Won (opponent Left)</value>
   </data>
   <data name="WordNotAvailable" xml:space="preserve">
-    <value>Palabra no disponible</value>
+    <value>Word not available</value>
   </data>
 </root>
