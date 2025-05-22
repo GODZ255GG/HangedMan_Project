@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BackButton" xml:space="preserve">
-    <value>Volver</value>
+    <value>Volver a Inicio de sesión</value>
   </data>
   <data name="BirthDateRegister" xml:space="preserve">
     <value>Fecha de nacimiento</value>
@@ -261,6 +261,9 @@
   <data name="LabelBirthDateEmpty" xml:space="preserve">
     <value>Por favor selecciona la fecha de tu nacimiento</value>
   </data>
+  <data name="labelCreateNewAccount" xml:space="preserve">
+    <value>Crear nueva cuenta</value>
+  </data>
   <data name="LabelEmailEmpty" xml:space="preserve">
     <value>Por favor ingresa tu correo electronico</value>
   </data>
@@ -271,7 +274,7 @@
     <value>Por favor ingresa tus nombres</value>
   </data>
   <data name="LabelNickEmpty" xml:space="preserve">
-    <value>Por favor ingresa tu nickname</value>
+    <value>Por favor ingresa tu nombre de usuario</value>
   </data>
   <data name="LabelPasswordEmpty" xml:space="preserve">
     <value>Por favor ingresa tu contraseña</value>
@@ -364,7 +367,7 @@
     <value>Por favor ingresa un nickname valido, solo puede contener letras y numeros</value>
   </data>
   <data name="NickNameRegister" xml:space="preserve">
-    <value>Nickname</value>
+    <value>Nombre de usuario</value>
   </data>
   <data name="PasswordConfirmationRegister" xml:space="preserve">
     <value>Confirmar contrasena</value>
@@ -394,7 +397,7 @@
     <value>Tu perfil del jugador</value>
   </data>
   <data name="RegisterButton" xml:space="preserve">
-    <value>Registrarse</value>
+    <value>Crear Cuenta</value>
   </data>
   <data name="SecondNameRegister" xml:space="preserve">
     <value>Apellido materno</value>
