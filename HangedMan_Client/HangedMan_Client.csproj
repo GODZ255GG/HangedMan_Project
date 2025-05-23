@@ -76,6 +76,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SingletonLoggin\SessionManager.cs" />
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,6 +156,21 @@
       <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconLanguage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Wallpaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconLogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconController.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

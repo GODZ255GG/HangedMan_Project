@@ -270,8 +270,8 @@
   <data name="LabelFirstSurnameEmpty" xml:space="preserve">
     <value>Por favor ingresa tus apellido paterno</value>
   </data>
-  <data name="LabelNamesEmpty" xml:space="preserve">
-    <value>Por favor ingresa tus nombres</value>
+  <data name="LabelFullNameEmpty" xml:space="preserve">
+    <value>Por favor ingresa tu nombre completo</value>
   </data>
   <data name="LabelNickEmpty" xml:space="preserve">
     <value>Por favor ingresa tu nombre de usuario</value>
@@ -303,7 +303,7 @@
   <data name="LogginMessage" xml:space="preserve">
     <value>Bienvenido al juego</value>
   </data>
-  <data name="LoginLabel" xml:space="preserve">
+  <data name="LoginButton" xml:space="preserve">
     <value>Inicia Sesión</value>
   </data>
   <data name="LogOutButton" xml:space="preserve">
@@ -355,10 +355,10 @@
     <value>Modificar</value>
   </data>
   <data name="NamesNotValid" xml:space="preserve">
-    <value>Por favor comprueba tu nombre o apellidos y no uses acentos</value>
+    <value>Por favor comprueba tu nombre completo y no uses acentos</value>
   </data>
-  <data name="NamesRegister" xml:space="preserve">
-    <value>Nombres</value>
+  <data name="FullNameRegister" xml:space="preserve">
+    <value>Nombre Completo</value>
   </data>
   <data name="NicknameAlreadyRegistered" xml:space="preserve">
     <value>El nickname ya se encuentra registrado</value>
@@ -397,7 +397,7 @@
     <value>Tu perfil del jugador</value>
   </data>
   <data name="RegisterButton" xml:space="preserve">
-    <value>Crear Cuenta</value>
+    <value>¿No tiene una cuenta? Regístrese aquí</value>
   </data>
   <data name="SecondNameRegister" xml:space="preserve">
     <value>Apellido materno</value>
@@ -452,5 +452,14 @@
   </data>
   <data name="WordNotAvailable" xml:space="preserve">
     <value>Palabra no disponible</value>
+  </data>
+  <data name="labelSubtitle" xml:space="preserve">
+    <value>Inicia sesión para continuar tu aventura</value>
+  </data>
+  <data name="labelTitle" xml:space="preserve">
+    <value>Bienvenido a Hangedman</value>
+  </data>
+  <data name="buttonCreate" xml:space="preserve">
+    <value>Registrar cuenta</value>
   </data>
 </root>

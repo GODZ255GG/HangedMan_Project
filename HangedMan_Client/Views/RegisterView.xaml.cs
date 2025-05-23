@@ -3,7 +3,7 @@ using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
+using System.Windows.Navigation;
 
 namespace HangedMan_Client.Views
 {
@@ -45,7 +45,7 @@ namespace HangedMan_Client.Views
                 labelNicknameEmpty.Visibility = Visibility.Hidden;
             }
 
-            if (string.IsNullOrWhiteSpace(txtNames.Text))
+            if (string.IsNullOrWhiteSpace(txtFullName.Text))
             {
                 labelNamesEmpty.Visibility = Visibility.Visible;
                 hasEmptyField = true;
@@ -53,26 +53,6 @@ namespace HangedMan_Client.Views
             else
             {
                 labelNamesEmpty.Visibility = Visibility.Hidden;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtFirstSurname.Text))
-            {
-                labelFirstSurnameEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelFirstSurnameEmpty.Visibility = Visibility.Hidden;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtSecondSurname.Text))
-            {
-                labelSecondSurnameEmpty.Visibility = Visibility.Visible;
-                hasEmptyField = true;
-            }
-            else
-            {
-                labelSecondSurnameEmpty.Visibility = Visibility.Hidden;
             }
 
             if (string.IsNullOrWhiteSpace(txtTelephone.Text))
@@ -126,8 +106,6 @@ namespace HangedMan_Client.Views
             labelNicknameEmpty.Visibility = Visibility.Hidden;
             labelPasswordConfirmationEmpty.Visibility = Visibility.Hidden;
             labelPasswordEmpty.Visibility = Visibility.Hidden;
-            labelSecondSurnameEmpty.Visibility = Visibility.Hidden;
-            labelFirstSurnameEmpty.Visibility = Visibility.Hidden;
             labelTelephoneEmpty.Visibility = Visibility.Hidden;
         }
 
@@ -208,9 +186,7 @@ namespace HangedMan_Client.Views
             newPlayer.NickName = txtNickname.Text.Trim();
             newPlayer.Password = txtPassword.Password.Trim();
             newPlayer.PhoneNumber = txtTelephone.Text.Trim();
-            newPlayer.Names = txtNames.Text.Trim();
-            newPlayer.FirstSurname = txtFirstSurname.Text.Trim();
-            newPlayer.SecondSurname = txtSecondSurname.Text.Trim();
+            newPlayer.FullName = txtFullName.Text.Trim();
             newPlayer.PointsEarned = 0;
             newPlayer.BirthDate = dpBirthDate.Text;
 
@@ -221,13 +197,11 @@ namespace HangedMan_Client.Views
         {
             string email = txtEmail.Text.Trim();
             string nickName = txtNickname.Text.Trim();
-            string name = txtNames.Text.Trim();
-            string firstSurname = txtFirstSurname.Text.Trim();
-            string secondSurname = txtSecondSurname.Text.Trim();
+            string fullName = txtFullName.Text.Trim();
             string password = txtPassword.Password.Trim();
             string phoneNumber = txtTelephone.Text.Trim();
 
-            if (validateNames(name) && validateNames(firstSurname) && validateNames(secondSurname) && validateNick(nickName)
+            if (validateFullName(fullName) && validateNick(nickName)
                 && validateEmail(email) && validatePassword(password) && validateTelephone(phoneNumber))
             {
                 return true;
@@ -235,7 +209,7 @@ namespace HangedMan_Client.Views
             return false;
         }
 
-        private bool validateNames(string name)
+        private bool validateFullName(string name)
         {
 
             if (Regex.IsMatch(name, @"^[a-zA-Z\s]+$"))
@@ -317,71 +291,17 @@ namespace HangedMan_Client.Views
 
         private void BtnChangeEnglish_Click(object sender, RoutedEventArgs e)
         {
-            btnChangeEnglish.Tag = "Selected";
-            btnChangeSpanish.Tag = null;
-            mainWindow.changeLanguage("en");
+            mainWindow.changeLanguageRegister("en");
         }
 
         private void BtnChangeSpanish_Click(object sender, RoutedEventArgs e)
         {
-            btnChangeSpanish.Tag = "Selected";
-            btnChangeEnglish.Tag = null;
-            mainWindow.changeLanguage("es");
+            mainWindow.changeLanguageRegister("es");
         }
 
-        public void UpdateLanguageResources()
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            //Subtitulo
-            lblSubtitle.Content = Properties.Resources.labelCreateNewAccount;
-
-            // Botones de idioma
-            btnChangeEnglish.Content = Properties.Resources.EnglishButton;
-            btnChangeSpanish.Content = Properties.Resources.SpanishButton;
-
-            // Columna Izquierda
-            lblEmail.Content = Properties.Resources.EmailRegister;
-            labelEmailEmpty.Content = Properties.Resources.LabelEmailEmpty;
-
-            lblNames.Content = Properties.Resources.NamesRegister;
-            labelNamesEmpty.Content = Properties.Resources.LabelNamesEmpty;
-
-            lblFirstSurname.Content = Properties.Resources.FirstNameRegister;
-            labelFirstSurnameEmpty.Content = Properties.Resources.LabelFirstSurnameEmpty;
-
-            lblPassword.Content = Properties.Resources.PasswordRegister;
-            labelPasswordEmpty.Content = Properties.Resources.LabelPasswordEmpty;
-
-            // Columna Derecha
-            lblNickname.Content = Properties.Resources.NickNameRegister;
-            labelNicknameEmpty.Content = Properties.Resources.LabelNickEmpty;
-
-            lblSecondSurname.Content = Properties.Resources.SecondNameRegister;
-            labelSecondSurnameEmpty.Content = Properties.Resources.LabelSecondSurnameEmpty;
-
-            lblTelephone.Content = Properties.Resources.TelephoneRegister;
-            labelTelephoneEmpty.Content = Properties.Resources.LabelTelephoneEmpty;
-
-            lblPasswordConfirmation.Content = Properties.Resources.PasswordConfirmationRegister;
-            labelPasswordConfirmationEmpty.Content = Properties.Resources.LabelPaswwordConfirmationEmpty;
-
-            // Sección inferior
-            lblBirthDate.Content = Properties.Resources.BirthDateRegister;
-            labelBirthDateEmpty.Content = Properties.Resources.LabelBirthDateEmpty;
-
-            // Botones de acción
-            btnRegister.Content = Properties.Resources.RegisterButton;
-            btnBack.Content = Properties.Resources.BackButton;
-        }
-
-        public void UpdateButtonColors(bool englishSelected)
-        {
-            btnChangeEnglish.Background = englishSelected ?
-            (SolidColorBrush)new BrushConverter().ConvertFrom("#FF252526") :
-            (SolidColorBrush)new BrushConverter().ConvertFrom("#FF007ACC");
-
-            btnChangeSpanish.Background = !englishSelected ?
-                (SolidColorBrush)new BrushConverter().ConvertFrom("#FF252526") :
-                (SolidColorBrush)new BrushConverter().ConvertFrom("#FF007ACC");
+            mainWindow.goToLoginView();
         }
     }
 }

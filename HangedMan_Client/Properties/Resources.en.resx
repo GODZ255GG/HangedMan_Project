@@ -270,8 +270,8 @@
   <data name="LabelFirstSurnameEmpty" xml:space="preserve">
     <value>Please enter your first surname</value>
   </data>
-  <data name="LabelNamesEmpty" xml:space="preserve">
-    <value>Please enter your name</value>
+  <data name="LabelFullNameEmpty" xml:space="preserve">
+    <value>Please enter your full name</value>
   </data>
   <data name="LabelNickEmpty" xml:space="preserve">
     <value>Please enter a nickname</value>
@@ -303,7 +303,7 @@
   <data name="LogginMessage" xml:space="preserve">
     <value>Welcome to the game</value>
   </data>
-  <data name="LoginLabel" xml:space="preserve">
+  <data name="LoginButton" xml:space="preserve">
     <value>LogIn</value>
   </data>
   <data name="LogOutButton" xml:space="preserve">
@@ -355,10 +355,10 @@
     <value>Modify</value>
   </data>
   <data name="NamesNotValid" xml:space="preserve">
-    <value>Please check your first or last name and do not use accents.</value>
+    <value>Please check your full name and do not use accents.</value>
   </data>
-  <data name="NamesRegister" xml:space="preserve">
-    <value>Names</value>
+  <data name="FullNameRegister" xml:space="preserve">
+    <value>Full Name</value>
   </data>
   <data name="NicknameAlreadyRegistered" xml:space="preserve">
     <value>The nickname is already registered</value>
@@ -397,7 +397,7 @@
     <value>Your profile</value>
   </data>
   <data name="RegisterButton" xml:space="preserve">
-    <value>Create an account</value>
+    <value>Don't have an account? Register here</value>
   </data>
   <data name="SecondNameRegister" xml:space="preserve">
     <value>Second name</value>
@@ -452,5 +452,14 @@
   </data>
   <data name="WordNotAvailable" xml:space="preserve">
     <value>Word not available</value>
+  </data>
+  <data name="labelSubtitle" xml:space="preserve">
+    <value>Login to continue your adventure</value>
+  </data>
+  <data name="labelTitle" xml:space="preserve">
+    <value>Welcome to Hangman</value>
+  </data>
+  <data name="buttonCreate" xml:space="preserve">
+    <value>Register Account</value>
   </data>
 </root>

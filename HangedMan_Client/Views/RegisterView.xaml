@@ -7,13 +7,12 @@
         xmlns:p="clr-namespace:HangedMan_Client.Properties"
         mc:Ignorable="d"
         Title="Hangman - Registro" 
-        Width="1200" Height="900">
+        Width="1200" Height="800">
 
     <Page.Resources>
         <!-- Estilo para los botones de idioma -->
         <Style x:Key="LanguageButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#FF252526"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#D1D5DB"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -22,16 +21,11 @@
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="3">
+                                CornerRadius="5">
                             <ContentPresenter HorizontalAlignment="Center" 
                                               VerticalAlignment="Center"
                                               Margin="10,5"/>
                         </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#FF007ACC"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -108,14 +102,7 @@
         </Style>
 
         <!-- Estilo para botones principales -->
-        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#FF007ACC"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="45"/>
-            <Setter Property="Cursor" Value="Hand"/>
+        <Style x:Key="CreateButtonStyle" TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -141,29 +128,78 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="BackButtonStyle" TargetType="Button">
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image Source="/Resources/iconBack.png" Width="20" Height="20" Margin="0,0,5,0"/>
+                            <Label Content="{x:Static p:Resources.BackButton}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Opacity" Value="0.6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
 
     <Grid>
-        <Rectangle Fill="#FFFFFFFF"/>
+        <Rectangle>
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Resources/Wallpaper.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
-        <!-- Contenedor principal del formulario - Aumenté el ancho para acomodar dos columnas -->
-        <Border Width="650" 
-                Height="854"
-                Background="#FFAFAFB1" 
+        <Rectangle>
+            <Rectangle.Fill>
+                <SolidColorBrush Color="Gray" Opacity="0.7"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        
+        <Border Width="600" 
+                Height="730"
+                Background="#E5E7EB" 
                 CornerRadius="10" 
                 BorderThickness="1"
+                Margin="0,-40,0,0"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center">
 
-            <Grid Margin="30,30,30,15">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15"
+              Direction="270"
+              ShadowDepth="0"
+              Color="Black"
+              Opacity="0.2"/>
+            </Border.Effect>
+
+            <Grid Margin="30,10,30,10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" MinHeight="82"/>
-                    <RowDefinition/>
-                    <RowDefinition Height="Auto" MinHeight="115"/>
+                    <RowDefinition Height="58*"/>
+                    <RowDefinition Height="11*"/>
                 </Grid.RowDefinitions>
 
                 <!-- Encabezado -->
-                <StackPanel Grid.Row="0" Margin="0,0,0,600" Grid.RowSpan="2">
+                <StackPanel Grid.Row="0">
                     <Label Content="Hangman" 
                                Foreground="Black" 
                                FontSize="32" 
@@ -172,12 +208,11 @@
                     <Label x:Name="lblSubtitle" Content="{x:Static p:Resources.labelCreateNewAccount}" 
                                Foreground="Black" 
                                FontSize="18"
-                               HorizontalAlignment="Center"
-                               Margin="0,5,0,0"/>
+                               HorizontalAlignment="Center"/>
                 </StackPanel>
 
                 <!-- Formulario de registro en DOS COLUMNAS -->
-                <Grid Grid.Row="1" VerticalAlignment="Center" Height="550">
+                <Grid Grid.Row="1" VerticalAlignment="Top" Height="571" Margin="0,15,0,0" Grid.RowSpan="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="20"/>
@@ -191,31 +226,25 @@
                         <Label x:Name="lblEmail" Content="{x:Static p:Resources.EmailRegister}" Foreground="Black" Margin="0,0,0,5"/>
                         <TextBox x:Name="txtEmail" Style="{StaticResource RoundedTextBoxStyle}" Height="35" Padding="8" 
                                  Foreground="Black" Background="#FFF9F9F9"
-                                 BorderBrush="#FF9B9B9C"/>
+                                 BorderBrush="#D1D5DB"/>
                         <Label x:Name="labelEmailEmpty" Content="{x:Static p:Resources.LabelEmailEmpty}" HorizontalAlignment="Left" 
                                Foreground="Red" Margin="0,5,0,0" FontSize="12" FontWeight="Bold"/>
 
                         <!-- Nombres -->
-                        <Label x:Name="lblNames" Content="{x:Static p:Resources.NamesRegister}" Foreground="Black" Margin="0,15,0,5"/>
-                        <TextBox x:Name="txtNames" Style="{StaticResource RoundedTextBoxStyle}" Height="35" Padding="8" 
+                        <Label x:Name="lblNames" Content="{x:Static p:Resources.FullNameRegister}" Foreground="Black" Margin="0,15,0,5"/>
+                        <TextBox x:Name="txtFullName" Style="{StaticResource RoundedTextBoxStyle}" Height="35" Padding="8" 
                                  Foreground="Black" Background="White"
-                                 BorderBrush="#FF9B9B9C"/>
-                        <Label x:Name="labelNamesEmpty" Content="{x:Static p:Resources.LabelNamesEmpty}" HorizontalAlignment="Left"
+                                 BorderBrush="#D1D5DB"/>
+                        <Label x:Name="labelNamesEmpty" Content="{x:Static p:Resources.LabelFullNameEmpty}" HorizontalAlignment="Left"
                                Foreground="Red" Margin="0,5,0,0" FontSize="12" FontWeight="Bold"/>
 
                         <!-- Apellido Paterno -->
-                        <Label x:Name="lblFirstSurname" Content="{x:Static p:Resources.FirstNameRegister}" Foreground="Black" Margin="0,15,0,5"/>
-                        <TextBox x:Name="txtFirstSurname" Style="{StaticResource RoundedTextBoxStyle}" Height="35" Padding="8" 
-                                 Foreground="Black" Background="#FFFDFDFD"
-                                 BorderBrush="#FF9B9B9C"/>
-                        <Label x:Name="labelFirstSurnameEmpty" Content="{x:Static p:Resources.LabelFirstSurnameEmpty}" HorizontalAlignment="Left"
-                               Foreground="Red" Margin="0,5,0,0" FontSize="12" FontWeight="Bold"/>
 
                         <!-- Contraseña -->
                         <Label x:Name="lblPassword" Content="{x:Static p:Resources.PasswordRegister}" Foreground="Black" Margin="0,15,0,5"/>
                         <PasswordBox x:Name="txtPassword"  Style="{StaticResource RoundedPasswordBoxStyle}" Height="35" Padding="8" 
                                      Foreground="Black" Background="White"
-                                     BorderBrush="#FF9B9B9C"/>
+                                     BorderBrush="#D1D5DB"/>
                         <Label x:Name="labelPasswordEmpty" Content="{x:Static p:Resources.LabelPasswordEmpty}" HorizontalAlignment="Left"
                                Foreground="Red" Margin="0,5,0,0" FontSize="12" FontWeight="Bold"/>
                     </StackPanel>
@@ -226,23 +255,17 @@
                         <Label x:Name="lblNickname" Content="{x:Static p:Resources.NickNameRegister}" Foreground="Black" Margin="0,0,0,5"/>
                         <TextBox x:Name="txtNickname" Style="{StaticResource RoundedTextBoxStyle}" Height="35" Padding="8" 
                                  Foreground="Black" Background="White"
-                                 BorderBrush="#FF9B9B9C"/>
+                                 BorderBrush="#D1D5DB"/>
                         <Label x:Name="labelNicknameEmpty" Content="{x:Static p:Resources.LabelNickEmpty}" HorizontalAlignment="Left"
                                Foreground="Red" Margin="0,5,0,0" FontSize="12" FontWeight="Bold"/>
 
                         <!-- Apellido Materno -->
-                        <Label x:Name="lblSecondSurname" Content="{x:Static p:Resources.SecondNameRegister}" Foreground="Black" Margin="0,15,0,5"/>
-                        <TextBox x:Name="txtSecondSurname" Style="{StaticResource RoundedTextBoxStyle}" Height="35" Padding="8" 
-                                 Foreground="Black" Background="White"
-                                 BorderBrush="#FF9B9B9C"/>
-                        <Label x:Name="labelSecondSurnameEmpty" Content="Por favor ingresa tu apellido materno" HorizontalAlignment="Left"
-                               Foreground="Red" Margin="0,5,0,0" FontSize="12" FontWeight="Bold"/>
 
                         <!-- Número de teléfono -->
                         <Label x:Name="lblTelephone" Content="{x:Static p:Resources.TelephoneRegister}" Foreground="Black" Margin="0,15,0,5"/>
                         <TextBox x:Name="txtTelephone" Style="{StaticResource RoundedTextBoxStyle}" Height="35" Padding="8" 
                                  Foreground="Black" Background="White"
-                                 BorderBrush="#FF9B9B9C"/>
+                                 BorderBrush="#D1D5DB"/>
                         <Label x:Name="labelTelephoneEmpty" Content="{x:Static p:Resources.LabelTelephoneEmpty}" HorizontalAlignment="Left" 
                                Foreground="Red" Margin="0,5,0,0" FontSize="12" FontWeight="Bold"/>
 
@@ -250,47 +273,58 @@
                         <Label x:Name="lblPasswordConfirmation" Content="{x:Static p:Resources.PasswordConfirmationRegister}" Foreground="Black" Margin="0,15,0,5"/>
                         <PasswordBox x:Name="txtPasswordConfirmation" Style="{StaticResource RoundedPasswordBoxStyle}" Height="35" Padding="8" 
                                      Foreground="Black" Background="White"
-                                     BorderBrush="#FF9B9B9C"/>
+                                     BorderBrush="#D1D5DB"/>
                         <Label x:Name="labelPasswordConfirmationEmpty" Content="{x:Static p:Resources.LabelPaswwordConfirmationEmpty}" HorizontalAlignment="Left" 
                                Foreground="Red" Margin="0,5,0,0" FontSize="12" FontWeight="Bold"/>
                     </StackPanel>
                 </Grid>
 
                 <!-- Elementos de ancho completo debajo de las dos columnas -->
-                <StackPanel Grid.Row="1" VerticalAlignment="Top" Margin="10,463,0,0" Height="152" Grid.RowSpan="2">
+                <StackPanel Grid.Row="1" VerticalAlignment="Top" Margin="10,344,0,0" Height="152">
                     <!-- Fecha de nacimiento -->
-                    <Label x:Name="lblBirthDate" Content="{x:Static p:Resources.BirthDateRegister}" Foreground="Black" Margin="5,0,0,5" Width="296"/>
-                    <DatePicker x:Name="dpBirthDate" Height="35" Padding="8" Margin="145,0,0,0"
+                    <Label x:Name="lblBirthDate" Content="{x:Static p:Resources.BirthDateRegister}" Foreground="Black" Margin="5,0,0,5" Width="308"/>
+                    <DatePicker x:Name="dpBirthDate" Height="35" Padding="8" Margin="110,0,0,0"
                                 SelectedDateFormat="Short" Background="White"
-                                Foreground="Black" BorderBrush="#FF9B9B9C" 
+                                Foreground="Black" BorderBrush="#D1D5DB" 
                                 Width="300" HorizontalAlignment="Left" IsTodayHighlighted="False"/>
-                    <Label x:Name="labelBirthDateEmpty" Content="{x:Static p:Resources.LabelBirthDateEmpty}" Margin="147,0,0,0"
+                    <Label x:Name="labelBirthDateEmpty" Content="{x:Static p:Resources.LabelBirthDateEmpty}" Margin="110,0,0,0"
                            Foreground="Red" FontSize="12" FontWeight="Bold"/>
 
                     <!-- Selector de idioma -->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="-9,7,0,0">
-                        <Button x:Name="btnChangeEnglish" Content="{x:Static p:Resources.EnglishButton}" 
+                        <Button x:Name="btnChangeEnglish" Background="#FF007ACC"                            
                             Width="150" Height="40" Margin="0,0,40,0" 
-                            Style="{StaticResource LanguageButtonStyle}" Click="BtnChangeEnglish_Click"/>
-                        <Button x:Name="btnChangeSpanish" Content="{x:Static p:Resources.SpanishButton}" 
+                            Style="{StaticResource LanguageButtonStyle}" Click="BtnChangeEnglish_Click" BorderBrush="#FFD1D5DB">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/iconLanguage.png" Width="20" Height="20" Margin="0,0,5,0"/>
+                                <Label Content="{x:Static p:Resources.EnglishButton}" Foreground="White" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="btnChangeSpanish" 
                             Width="150" Height="40" Background="#FF007ACC"
-                            Style="{StaticResource LanguageButtonStyle}" Click="BtnChangeSpanish_Click"/>
+                            Style="{StaticResource LanguageButtonStyle}" Click="BtnChangeSpanish_Click" BorderBrush="#FFD1D5DB" Cursor="Hand">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/iconLanguage.png" Width="20" Height="20" Margin="0,0,5,0"/>
+                                <Label Content="{x:Static p:Resources.SpanishButton}" Foreground="White" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
                 </StackPanel>
 
                 <!-- Botones de acción -->
-                <StackPanel Grid.Row="2" Orientation="Vertical" 
-            HorizontalAlignment="Center" Margin="0,15,0,0" Width="500">
-                    <Button x:Name="btnRegister" Content="{x:Static p:Resources.RegisterButton}" 
-            Width="500" Height="45" Style="{StaticResource PrimaryButtonStyle}"
-            Background="#FF007ACC" Foreground="White" 
+                <StackPanel Grid.Row="1" Orientation="Vertical" 
+            HorizontalAlignment="Center" Margin="0,501,0,3" Width="500" Grid.RowSpan="2">
+                    <Button x:Name="btnRegister" Content="{x:Static p:Resources.buttonCreate}" 
+            Width="500" Height="45" Style="{StaticResource CreateButtonStyle}"
+            Background="#FF4F46E5" Foreground="White" 
             FontWeight="Bold" FontSize="16"
             Margin="0,0,0,10" Click="Register_Click"/>
-                    <Button x:Name="btnBack" Content="{x:Static p:Resources.BackButton}" 
-            Width="500" Height="45" Foreground="#FF007ACC"
-            FontSize="16" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}"/>
+                    <Button x:Name="btnBack"
+            Width="500" Height="45" Foreground="#FF007ACC" Style="{StaticResource BackButtonStyle}"
+            FontSize="16" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnBack_Click"/>
                 </StackPanel>
             </Grid>
         </Border>
+        <Image HorizontalAlignment="Left" Height="100" Margin="1048,353,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Page>

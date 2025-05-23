@@ -1,17 +1,6 @@
 ﻿using HangedMan_Client.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace HangedMan_Client
 {
@@ -24,28 +13,29 @@ namespace HangedMan_Client
         {
             InitializeComponent();
             goToRegisterView();
-
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es");
         }
 
-        private void goToRegisterView()
+        public void goToRegisterView()
         {
             this.frame.Navigate(new RegisterView(this));
         }
 
-        public void changeLanguage(string cultureCode)
+        public void goToLoginView()
+        {
+            this.frame.Navigate(new LoginView(this));
+        }
+
+        public void changeLanguageRegister(string cultureCode)
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cultureCode);
+            goToRegisterView();
+        }
 
-            // Guardar el estado actual de los botones
-            var currentView = frame.Content as RegisterView;
-            bool wasEnglishSelected = currentView?.btnChangeEnglish.Background.ToString() == "#FF007ACC";
-
-            // Actualizar la vista existente
-            if (currentView != null)
-            {
-                currentView.UpdateLanguageResources();
-                currentView.UpdateButtonColors(wasEnglishSelected);
-            }
+        public void changeLanguageLogin(string cultureCode)
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cultureCode);
+            goToLoginView();
         }
     }
 }
