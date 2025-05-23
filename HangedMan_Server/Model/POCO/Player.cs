@@ -14,11 +14,7 @@ namespace HangedMan_Server.Model.POCO
         [Column]
         public string NickName { get; set; }
         [Column]
-        public string Names { get; set; }
-        [Column]
-        public string FirstSurname { get; set; }
-        [Column]
-        public string SecondSurname { get; set; }
+        public string FullName { get; set; }
         [Column]
         public string BirthDate { get; set; }
         [Column]

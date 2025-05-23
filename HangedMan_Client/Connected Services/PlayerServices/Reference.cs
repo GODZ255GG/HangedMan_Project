@@ -29,10 +29,7 @@ namespace HangedMan_Client.PlayerServices {
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FirstSurnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NamesField;
+        private string FullNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NickNameField;
@@ -48,9 +45,6 @@ namespace HangedMan_Client.PlayerServices {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PointsEarnedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SecondSurnameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -89,27 +83,14 @@ namespace HangedMan_Client.PlayerServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FirstSurname {
+        public string FullName {
             get {
-                return this.FirstSurnameField;
+                return this.FullNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.FirstSurnameField, value) != true)) {
-                    this.FirstSurnameField = value;
-                    this.RaisePropertyChanged("FirstSurname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Names {
-            get {
-                return this.NamesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NamesField, value) != true)) {
-                    this.NamesField = value;
-                    this.RaisePropertyChanged("Names");
+                if ((object.ReferenceEquals(this.FullNameField, value) != true)) {
+                    this.FullNameField = value;
+                    this.RaisePropertyChanged("FullName");
                 }
             }
         }
@@ -175,19 +156,6 @@ namespace HangedMan_Client.PlayerServices {
                 if ((this.PointsEarnedField.Equals(value) != true)) {
                     this.PointsEarnedField = value;
                     this.RaisePropertyChanged("PointsEarned");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SecondSurname {
-            get {
-                return this.SecondSurnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SecondSurnameField, value) != true)) {
-                    this.SecondSurnameField = value;
-                    this.RaisePropertyChanged("SecondSurname");
                 }
             }
         }
