@@ -10,28 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace HangedMan_Client.Views
 {
     /// <summary>
-    /// Lógica de interacción para Lobby.xaml
+    /// Lógica de interacción para ProfileDialog.xaml
     /// </summary>
-    public partial class Lobby : Page
+    public partial class ProfileDialog : Window
     {
-        public Lobby()
+        public ProfileDialog()
         {
             InitializeComponent();
-        }
-
-        private void BtnCreateGame_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnJoinMatch_Click(object sender, RoutedEventArgs e)
-        {
         }
     }
 }
