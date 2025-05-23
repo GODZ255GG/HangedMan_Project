@@ -197,6 +197,12 @@ namespace HangedMan_Client.PlayerServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/telephoneAlreadyExist", ReplyAction="http://tempuri.org/IPlayerServices/telephoneAlreadyExistResponse")]
         System.Threading.Tasks.Task<bool> telephoneAlreadyExistAsync(string telephone);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/logIn", ReplyAction="http://tempuri.org/IPlayerServices/logInResponse")]
+        HangedMan_Client.PlayerServices.Player logIn(string email, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/logIn", ReplyAction="http://tempuri.org/IPlayerServices/logInResponse")]
+        System.Threading.Tasks.Task<HangedMan_Client.PlayerServices.Player> logInAsync(string email, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -256,6 +262,14 @@ namespace HangedMan_Client.PlayerServices {
         
         public System.Threading.Tasks.Task<bool> telephoneAlreadyExistAsync(string telephone) {
             return base.Channel.telephoneAlreadyExistAsync(telephone);
+        }
+        
+        public HangedMan_Client.PlayerServices.Player logIn(string email, string password) {
+            return base.Channel.logIn(email, password);
+        }
+        
+        public System.Threading.Tasks.Task<HangedMan_Client.PlayerServices.Player> logInAsync(string email, string password) {
+            return base.Channel.logInAsync(email, password);
         }
     }
 }

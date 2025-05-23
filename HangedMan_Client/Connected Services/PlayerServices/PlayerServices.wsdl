@@ -31,6 +31,12 @@
   <wsdl:message name="IPlayerServices_telephoneAlreadyExist_OutputMessage">
     <wsdl:part name="parameters" element="tns:telephoneAlreadyExistResponse" />
   </wsdl:message>
+  <wsdl:message name="IPlayerServices_logIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:logIn" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_logIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:logInResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPlayerServices">
     <wsdl:operation name="registerPlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/registerPlayer" message="tns:IPlayerServices_registerPlayer_InputMessage" />
@@ -47,6 +53,10 @@
     <wsdl:operation name="telephoneAlreadyExist">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/telephoneAlreadyExist" message="tns:IPlayerServices_telephoneAlreadyExist_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/telephoneAlreadyExistResponse" message="tns:IPlayerServices_telephoneAlreadyExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="logIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/logIn" message="tns:IPlayerServices_logIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/logInResponse" message="tns:IPlayerServices_logIn_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPlayerServices" type="tns:IPlayerServices">
@@ -80,6 +90,15 @@
     </wsdl:operation>
     <wsdl:operation name="telephoneAlreadyExist">
       <soap:operation soapAction="http://tempuri.org/IPlayerServices/telephoneAlreadyExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logIn">
+      <soap:operation soapAction="http://tempuri.org/IPlayerServices/logIn" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -71,5 +71,23 @@ namespace HangedMan_Server.Model.DTO
                 throw ex;
             }
         }
+
+        public static Player logIn(string email, string password)
+        {
+            try
+            {
+                var connection = ConnectionDB.getConnection();
+                connection.Open();
+                DataContext dataContext = new DataContext(connection);
+                var user = (from us in dataContext.GetTable<Player>()
+                            where us.Email == email && us.Password == password
+                            select us).FirstOrDefault();
+                return user;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

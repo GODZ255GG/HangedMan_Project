@@ -130,7 +130,7 @@ namespace HangedMan_Client.Views
                     {
                         if (allValidate())
                         {
-                            if (await playerServicesClient.emailAlreadyRegisteredAsync(txtEmail.Text))
+                            if (await playerServicesClient.nicknameAlreadyRegisteredAsync(txtNickname.Text))
                             {
                                 string message = Properties.Resources.NicknameAlreadyRegistered;
                                 MessageBox.Show(message);
@@ -155,7 +155,7 @@ namespace HangedMan_Client.Views
                                     {
                                         string message = Properties.Resources.ConfirmationUserRegister;
                                         MessageBox.Show(message);
-                                        //NavigationService.Navigate(new LogIn(Application.Current.MainWindow as MainWindow));
+                                        mainWindow.goToLoginView();
                                     }
                                     else
                                     {
