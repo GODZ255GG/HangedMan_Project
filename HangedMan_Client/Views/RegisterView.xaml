@@ -193,13 +193,14 @@
 
             <Grid Margin="30,10,30,10">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" MinHeight="82"/>
-                    <RowDefinition Height="58*"/>
-                    <RowDefinition Height="11*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <!-- Encabezado -->
-                <StackPanel Grid.Row="0">
+                <StackPanel Grid.Row="0" Margin="0,0,0,15">
                     <Label Content="Hangman" 
                                Foreground="Black" 
                                FontSize="32" 
@@ -212,7 +213,7 @@
                 </StackPanel>
 
                 <!-- Formulario de registro en DOS COLUMNAS -->
-                <Grid Grid.Row="1" VerticalAlignment="Top" Height="571" Margin="0,15,0,0" Grid.RowSpan="2">
+                <Grid Grid.Row="1" VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="20"/>
@@ -280,21 +281,21 @@
                 </Grid>
 
                 <!-- Elementos de ancho completo debajo de las dos columnas -->
-                <StackPanel Grid.Row="1" VerticalAlignment="Top" Margin="10,344,0,0" Height="152">
+                <StackPanel Grid.Row="2" VerticalAlignment="Top">
                     <!-- Fecha de nacimiento -->
-                    <Label x:Name="lblBirthDate" Content="{x:Static p:Resources.BirthDateRegister}" Foreground="Black" Margin="5,0,0,5" Width="308"/>
+                    <Label x:Name="lblBirthDate" Content="{x:Static p:Resources.BirthDateRegister}" Foreground="Black" Margin="0,15,0,5" Width="308"/>
                     <DatePicker x:Name="dpBirthDate" Height="35" Padding="8" Margin="110,0,0,0"
                                 SelectedDateFormat="Short" Background="White"
                                 Foreground="Black" BorderBrush="#D1D5DB" 
                                 Width="300" HorizontalAlignment="Left" IsTodayHighlighted="False"/>
-                    <Label x:Name="labelBirthDateEmpty" Content="{x:Static p:Resources.LabelBirthDateEmpty}" Margin="110,0,0,0"
+                    <Label x:Name="labelBirthDateEmpty" Content="{x:Static p:Resources.LabelBirthDateEmpty}" Margin="110,0,0,7"
                            Foreground="Red" FontSize="12" FontWeight="Bold"/>
 
                     <!-- Selector de idioma -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="-9,7,0,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="-9,7,0,15">
                         <Button x:Name="btnChangeEnglish" Background="#FF007ACC"                            
                             Width="150" Height="40" Margin="0,0,40,0" 
-                            Style="{StaticResource LanguageButtonStyle}" Click="BtnChangeEnglish_Click" BorderBrush="#FFD1D5DB">
+                            Style="{StaticResource LanguageButtonStyle}" Click="BtnChangeEnglish_Click" BorderBrush="{x:Null}">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/Resources/iconLanguage.png" Width="20" Height="20" Margin="0,0,5,0"/>
                                 <Label Content="{x:Static p:Resources.EnglishButton}" Foreground="White" FontWeight="Bold"/>
@@ -302,7 +303,7 @@
                         </Button>
                         <Button x:Name="btnChangeSpanish" 
                             Width="150" Height="40" Background="#FF007ACC"
-                            Style="{StaticResource LanguageButtonStyle}" Click="BtnChangeSpanish_Click" BorderBrush="#FFD1D5DB" Cursor="Hand">
+                            Style="{StaticResource LanguageButtonStyle}" Click="BtnChangeSpanish_Click" BorderBrush="{x:Null}" Cursor="Hand">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/Resources/iconLanguage.png" Width="20" Height="20" Margin="0,0,5,0"/>
                                 <Label Content="{x:Static p:Resources.SpanishButton}" Foreground="White" FontWeight="Bold"/>
@@ -312,19 +313,17 @@
                 </StackPanel>
 
                 <!-- Botones de acción -->
-                <StackPanel Grid.Row="1" Orientation="Vertical" 
-            HorizontalAlignment="Center" Margin="0,501,0,3" Width="500" Grid.RowSpan="2">
+                <StackPanel Grid.Row="3" Orientation="Vertical" HorizontalAlignment="Center">
                     <Button x:Name="btnRegister" Content="{x:Static p:Resources.buttonCreate}" 
             Width="500" Height="45" Style="{StaticResource CreateButtonStyle}"
             Background="#FF4F46E5" Foreground="White" 
             FontWeight="Bold" FontSize="16"
-            Margin="0,0,0,10" Click="Register_Click"/>
+            Margin="0,0,0,10" Click="Register_Click" BorderBrush="{x:Null}"/>
                     <Button x:Name="btnBack"
             Width="500" Height="45" Foreground="#FF007ACC" Style="{StaticResource BackButtonStyle}"
-            FontSize="16" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnBack_Click"/>
+            FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnBack_Click"/>
                 </StackPanel>
             </Grid>
         </Border>
-        <Image HorizontalAlignment="Left" Height="100" Margin="1048,353,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Page>

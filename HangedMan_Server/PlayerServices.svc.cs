@@ -1,6 +1,5 @@
 ﻿using HangedMan_Server.Model.POCO;
 using HangedMan_Server.Model.DTO;
-using System;
 
 namespace HangedMan_Server
 {
@@ -24,6 +23,11 @@ namespace HangedMan_Server
         public bool telephoneAlreadyExist(string telephone)
         {
             return PlayerDTO.telephoneAlreadyRegistered(telephone);
+        }
+
+        public Player logIn(string email, string password)
+        {
+            return PlayerDTO.logIn(email, password);
         }
     }
 }

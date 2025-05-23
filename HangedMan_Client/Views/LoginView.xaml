@@ -283,7 +283,7 @@
                            Margin="0,0,0,5"/>
                     <TextBox x:Name="txtEmail" 
                              Style="{StaticResource RoundedTextBoxStyle}"
-                             Margin="0,0,0,5"/>
+                             Margin="0,0,0,5" BorderBrush="#FFD1D5DB"/>
 
                     <!-- Contraseña -->
                     <Label Content="{x:Static p:Resources.PasswordLoggin}" 
@@ -291,7 +291,7 @@
                            Margin="0,10,0,5"/>
                     <PasswordBox x:Name="txtPassword" 
                                  Style="{StaticResource RoundedPasswordBoxStyle}"
-                                 Margin="0,0,0,30"/>
+                                 Margin="0,0,0,30" BorderBrush="#FFD1D5DB"/>
                 </StackPanel>
                 
                 <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
@@ -317,7 +317,7 @@
                     <Button x:Name="btnLogin" 
                             Width="420" Height="45" Style="{StaticResource CreateButtonStyle}"
                             Background="#FF4F46E5"
-                            Margin="0,0,0,10"/>
+                            Margin="0,0,0,10" Click="BtnLogin_Click" BorderBrush="{x:Null}"/>
                     <Button x:Name="btnCreate"
                             Width="420" Height="45" Foreground="#FF007ACC" Style="{StaticResource BackButtonStyle}"
                             FontSize="16"  Background="{x:Null}" BorderBrush="{x:Null}" Click="btnCreate_Click"/>
