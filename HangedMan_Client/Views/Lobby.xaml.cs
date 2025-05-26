@@ -1,17 +1,14 @@
-﻿using System;
+﻿using HangedMan_Client.GameServices;
+using HangedMan_Client.PlayerServices;
+using HangedMan_Client.WordServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Threading;
+using System.Xml.Linq;
 
 namespace HangedMan_Client.Views
 {
@@ -20,9 +17,118 @@ namespace HangedMan_Client.Views
     /// </summary>
     public partial class Lobby : Page
     {
+        private int matchLanguage;
+        private DispatcherTimer dispatcherTimer;
+        List<Match> matchesAvaliables;
+        List<Category> categories;
+        List<Word> words;
+        WordServicesClient wordServicesClient = new WordServicesClient();
+        GameServicesClient gameServicesClient = new GameServicesClient();
+
         public Lobby()
         {
             InitializeComponent();
+            ShowInformationPlayer();
+            ChargeCategories();
+            SetupTimer();
+            GetAvaliableMatches();
+            cbxWord.IsEnabled = false;
+            cbxCategory.IsEnabled = false;
+        }
+
+        private void SetupTimer()
+        {
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
+            dispatcherTimer.Tick += DispatcherTimer_Tick;
+            dispatcherTimer.Start();
+        }
+
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            GetAvaliableMatches();
+
+        }
+
+        private async void GetAvaliableMatches()
+        {
+            try
+            {
+                Player player = SessionManager.Instance.LoggedInPlayer;
+                Match[] aux = await gameServicesClient.getMatchListAsync(player.PlayerID);
+                matchesAvaliables = aux.ToList();
+
+                MatchesItemsControl.ItemsSource = matchesAvaliables;
+
+                if (matchesAvaliables.Count == 0)
+                {
+                    NoMatchesText.Visibility = Visibility.Visible;
+                    MatchesScrollViewer.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    NoMatchesText.Visibility = Visibility.Collapsed;
+                    MatchesScrollViewer.Visibility = Visibility.Visible;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Properties.Resources.ErrorLoadingMatches + ": " + ex.Message,
+                              Properties.Resources.ErrorTitle,
+                              MessageBoxButton.OK,
+                              MessageBoxImage.Error);
+                NoMatchesText.Visibility = Visibility.Visible;
+                MatchesScrollViewer.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private async void ChargeCategories()
+        {
+            try
+            {
+                Category[] aux = await wordServicesClient.GetCategoriesAsync();
+                categories = aux.ToList();
+                cbxCategory.ItemsSource = categories;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async Task ChargeWordsPerCategory(int category)
+        {
+            try
+            {
+                Word[] aux = await wordServicesClient.GetWordsPerCategoryAsync(category);
+                words = aux.ToList();
+                cbxWord.ItemsSource = words;
+                cbxWord.IsEnabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar las palabras: {ex.Message}");
+            }
+        }
+
+        private void SpanishSelection_Click(object sender, RoutedEventArgs e)
+        {
+            cbxCategory.DisplayMemberPath = "SpanishCategory";
+            cbxWord.DisplayMemberPath = "SpanishWord";
+            cbxCategory.IsEnabled = true;
+            cbxWord.IsEnabled = true;
+            matchLanguage = 1;
+
+        }
+
+        private void EnglishSelection_Click(object sender, RoutedEventArgs e)
+        {
+            cbxCategory.DisplayMemberPath = "EnglishCategory";
+            cbxWord.DisplayMemberPath = "EnglishWord";
+            cbxCategory.IsEnabled = true;
+            cbxWord.IsEnabled = true;
+            matchLanguage = 2;
         }
 
         private void BtnCreateGame_Click(object sender, RoutedEventArgs e)
@@ -32,6 +138,56 @@ namespace HangedMan_Client.Views
 
         private void BtnJoinMatch_Click(object sender, RoutedEventArgs e)
         {
+            // Obtener el botón que disparó el evento
+            Button joinButton = sender as Button;
+
+            if (joinButton != null)
+            {
+                // Obtener la partida asociada a esta tarjeta
+                Match selectedMatch = joinButton.DataContext as Match;
+
+                if (selectedMatch != null)
+                {
+                    try
+                    {
+                        Player user = SessionManager.Instance.LoggedInPlayer;
+                        //gameServicesClient.initMatchGame(user.PlayerID, selectedMatch.MatchID);
+                        string message = Properties.Resources.JoinGameMessage;
+                        MessageBox.Show(message);
+                        dispatcherTimer.Stop();
+                        //NavigationService.Navigate(new InGame(selectedMatch));
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = Properties.Resources.JoinMatchErrorMessage;
+                        MessageBox.Show(message);
+                    }
+                }
+            }
+        }
+
+        private void BtnProfile_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new ProfileDialog();
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.ShowDialog();
+        }
+
+        private void ShowInformationPlayer()
+        {
+            Player player = SessionManager.Instance.LoggedInPlayer;
+            lblPlayerNickname.Content = player.NickName;
+        }
+
+        private async void CbxCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbxCategory.SelectedItem != null)
+            {
+                Category selectedCategory = (Category)cbxCategory.SelectedItem;
+                int categoryId = selectedCategory.CategoryID;
+
+                await ChargeWordsPerCategory(categoryId);
+            }
         }
     }
 }

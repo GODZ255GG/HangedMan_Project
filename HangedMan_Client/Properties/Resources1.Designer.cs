@@ -844,6 +844,15 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No hay partidas disponibles actualmente. ¡Sé el primero en crear una!.
+        /// </summary>
+        public static string NoMatchesAvailable {
+            get {
+                return ResourceManager.GetString("NoMatchesAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Confirmar contrasena.
         /// </summary>
         public static string PasswordConfirmationRegister {

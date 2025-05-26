@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="WordServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:56216/WordServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:56216/WordServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:56216/WordServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HangedMan_Server.Model.POCO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWordServices_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetWordsPerCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWordsPerCategory" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_GetWordsPerCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWordsPerCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_getWordSpanish_InputMessage">
+    <wsdl:part name="parameters" element="tns:getWordSpanish" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_getWordSpanish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getWordSpanishResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_getWordEnglish_InputMessage">
+    <wsdl:part name="parameters" element="tns:getWordEnglish" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_getWordEnglish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getWordEnglishResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_getClueSpanish_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClueSpanish" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_getClueSpanish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClueSpanishResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_getClueEnglish_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClueEnglish" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_getClueEnglish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClueEnglishResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWordServices">
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/GetCategories" message="tns:IWordServices_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/GetCategoriesResponse" message="tns:IWordServices_GetCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWordsPerCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/GetWordsPerCategory" message="tns:IWordServices_GetWordsPerCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/GetWordsPerCategoryResponse" message="tns:IWordServices_GetWordsPerCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getWordSpanish">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/getWordSpanish" message="tns:IWordServices_getWordSpanish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/getWordSpanishResponse" message="tns:IWordServices_getWordSpanish_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getWordEnglish">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/getWordEnglish" message="tns:IWordServices_getWordEnglish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/getWordEnglishResponse" message="tns:IWordServices_getWordEnglish_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClueSpanish">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/getClueSpanish" message="tns:IWordServices_getClueSpanish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/getClueSpanishResponse" message="tns:IWordServices_getClueSpanish_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClueEnglish">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/getClueEnglish" message="tns:IWordServices_getClueEnglish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/getClueEnglishResponse" message="tns:IWordServices_getClueEnglish_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWordServices" type="tns:IWordServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://tempuri.org/IWordServices/GetCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWordsPerCategory">
+      <soap:operation soapAction="http://tempuri.org/IWordServices/GetWordsPerCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWordSpanish">
+      <soap:operation soapAction="http://tempuri.org/IWordServices/getWordSpanish" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWordEnglish">
+      <soap:operation soapAction="http://tempuri.org/IWordServices/getWordEnglish" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClueSpanish">
+      <soap:operation soapAction="http://tempuri.org/IWordServices/getClueSpanish" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClueEnglish">
+      <soap:operation soapAction="http://tempuri.org/IWordServices/getClueEnglish" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WordServices">
+    <wsdl:port name="BasicHttpBinding_IWordServices" binding="tns:BasicHttpBinding_IWordServices">
+      <soap:address location="http://localhost:56216/WordServices.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

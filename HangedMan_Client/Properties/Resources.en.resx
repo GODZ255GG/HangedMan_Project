@@ -462,4 +462,7 @@
   <data name="buttonCreate" xml:space="preserve">
     <value>Register Account</value>
   </data>
+  <data name="NoMatchesAvailable" xml:space="preserve">
+    <value>No games are currently available. Be the first to create one!</value>
+  </data>
 </root>

@@ -462,4 +462,7 @@
   <data name="buttonCreate" xml:space="preserve">
     <value>Registrar cuenta</value>
   </data>
+  <data name="NoMatchesAvailable" xml:space="preserve">
+    <value>No hay partidas disponibles actualmente. ¡Sé el primero en crear una!</value>
+  </data>
 </root>

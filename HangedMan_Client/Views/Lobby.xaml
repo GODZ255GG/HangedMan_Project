@@ -4,12 +4,61 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:p="clr-namespace:HangedMan_Client.Properties"
-      xmlns:local="clr-namespace:HangedMan_Client.Views"
+      xmlns:local="clr-namespace:HangedMan_Client.Resources"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="1200"
+      Width="1200" Height="800"
       Title="Lobby">
 
     <Page.Resources>
+        <local:LanguageConverter x:Key="LanguageConverter"/>
+
+        <Style x:Key="RoundedComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <Border x:Name="Bd"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="10">
+                                <DockPanel>
+                                    <ContentPresenter x:Name="ContentSite"
+                                          Content="{TemplateBinding SelectionBoxItem}"
+                                          ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                          ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Left"
+                                          Margin="3,0,0,0"/>
+                                    <ToggleButton DockPanel.Dock="Right"
+                                      Focusable="False"
+                                      IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                      ClickMode="Press"
+                                      Background="Transparent"
+                                      BorderThickness="0"/>
+                                </DockPanel>
+                            </Border>
+                            <Popup x:Name="PART_Popup"
+                       Placement="Bottom"
+                       IsOpen="{TemplateBinding IsDropDownOpen}"
+                       AllowsTransparency="True"
+                       Focusable="False"
+                       PopupAnimation="Slide">
+                                <Border Background="White"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="10">
+                                    <ScrollViewer>
+                                        <ItemsPresenter/>
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <Style x:Key="CreateButtonStyle" TargetType="Button">
             <Setter Property="ContentTemplate">
                 <Setter.Value>
@@ -35,6 +84,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
         <Style x:Key="LanguageButtonStyle" TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
@@ -50,11 +100,29 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="ProfileButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="17">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
+    
+    
 
     <Grid>
 
-        <Rectangle Fill="White"/>
+        <Border CornerRadius="20" Background="White"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" MaxHeight="50"/>
@@ -63,27 +131,59 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#1E40AF">
-                <Label Content="Hangedman" VerticalAlignment="Center" FontSize="27" Margin="20,0,0,0" FontWeight="Bold" Foreground="White" Height="46"/>
-                <Button x:Name="btnProfile" Content="Player1" Margin="850,0,0,0" FontSize="16" Foreground="#FF0A04BB" FontFamily="Lato Semibold" Width="138" Height="36"/>
-            </StackPanel>
+            <Border CornerRadius="20,20,0,0"  Background="#1E40AF">
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Label Content="Hangedman" VerticalAlignment="Center" FontSize="27" Margin="20,0,0,0" FontWeight="Bold" Foreground="White" Height="46"/>
+                    <Button x:Name="btnProfile" Margin="840,0,0,0" FontSize="16" Background="#EFF6FF" Foreground="#FF0A04BB" FontFamily="Lato Semibold" Width="152" Height="36" Click="BtnProfile_Click" Style="{StaticResource ProfileButtonStyle}" BorderBrush="{x:Null}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image Source="/Resources/iconPlayer.png" Width="25" Height="25" Margin="0,0,5,0"/>
+                            <Label x:Name="lblPlayerNickname" Content="Player 1" Foreground="#1E40AF" FontWeight="Bold" FontSize="16"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Border>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" Background="White">
-                <Image Source="/Resources/iconControl.png" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="160,0,0,0"/>
+                <Image Source="/Resources/iconControl.png" Width="40" Height="28" VerticalAlignment="Center" Margin="160,0,0,0"/>
                 <Label Content=" Available Games" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Margin="10,0,0,0" FontWeight="Bold" Foreground="#FF0A04BB" />
             </StackPanel>
 
             <StackPanel Grid.Row="2" Orientation="Vertical" Background="White">
                 <Border Width="1000" 
                         Height="350"
-                        Background="#E5E7EB" 
                         CornerRadius="10" 
                         BorderThickness="1"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center">
 
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="15"
+                                          Direction="270"
+                                          ShadowDepth="0"
+                                          Color="Black"
+                                          Opacity="0.2"/>
+                                        </Border.Effect>
+
                     <StackPanel Orientation="Vertical" Margin="20,20,20,20">
-                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Height="308" >
+                        <!-- Mostrar mensaje si no hay partidas -->
+                        <TextBlock x:Name="NoMatchesText" 
+                                   Text="{x:Static p:Resources.NoMatchesAvailable}"
+                                   Visibility="Collapsed"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontFamily="Monocraft"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Foreground="#6B7280"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Center"
+                                   Margin="0,20"/>
+                        <!-- Mostrar partidas solo si hay disponibles -->
+                        <ScrollViewer x:Name="MatchesScrollViewer"
+                                      VerticalScrollBarVisibility="Auto"
+                                      HorizontalScrollBarVisibility="Disabled"
+                                      Height="308"
+                                      Visibility="Visible">
                             <ItemsControl x:Name="MatchesItemsControl" ItemsSource="{Binding}">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -193,13 +293,11 @@
                 </Border>
             </StackPanel>
 
-            <StackPanel Grid.Row="3" Orientation="Vertical" Background="White" Margin="0,5,0,0">
+            <StackPanel Grid.Row="3" Orientation="Vertical" Margin="0,5,0,0">
                 <Border Width="1000" 
                         Height="330"
-                        Background="#E5E7EB" 
+                        Background="#FFD7D8DA" 
                         CornerRadius="10" 
-                        BorderThickness="2"
-                        BorderBrush="#6B7280" 
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center">
 
@@ -218,17 +316,17 @@
                         </StackPanel>
                         <Label Content="Language"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Spanish" Style="{StaticResource LanguageButtonStyle}" Background="#1E40AF" Margin="0,0,5,0" Width="475" Height="40" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}"/>
-                            <Button Content="English" Style="{StaticResource LanguageButtonStyle}" Background="#1E40AF" Width="475" Height="40" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}"/>
+                            <Button Content="Spanish" Style="{StaticResource LanguageButtonStyle}" Background="#1E40AF" Margin="0,0,5,0" Width="475" Height="40" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" Click="SpanishSelection_Click"/>
+                            <Button Content="English" Style="{StaticResource LanguageButtonStyle}" Background="#1E40AF" Width="475" Height="40" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" Click="EnglishSelection_Click"/>
                         </StackPanel>
                         <Label Content="Category"/>
-                        <ComboBox x:Name="cmbCategory" IsEditable="False" Height="40"/>
+                        <ComboBox x:Name="cbxCategory" Height="40" SelectionChanged="CbxCategory_SelectionChanged" FontWeight="SemiBold" FontSize="16" VerticalContentAlignment="Center"/>
                         <Label Content="Word"/>
-                        <ComboBox x:Name="cmbWord" IsEditable="False" Height="40" Margin="0,0,0,10"/>
+                        <ComboBox x:Name="cbxWord" Height="40" Margin="0,0,0,10" FontSize="16" FontWeight="SemiBold" VerticalContentAlignment="Center"/>
                         <Button x:Name="btnCreateGame" Style="{StaticResource CreateButtonStyle}"  Height="40" Background="#16A34A" Foreground="White" FontWeight="Bold" BorderBrush="{x:Null}" Click="BtnCreateGame_Click"/>
                     </StackPanel>
                 </Border>
-                <Rectangle Fill="#1E40AF" Margin="0,10,0,0" Height="21"/>
+                <Border Background="#1E40AF" CornerRadius="0,0,20,20" Margin="0,7,0,0" Height="21"/>
             </StackPanel>
         </Grid>
     </Grid>
