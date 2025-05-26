@@ -80,5 +80,10 @@ namespace HangedMan_Client.Views
             return true;
 
         }
+
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.Close();
+        }
     }
 }

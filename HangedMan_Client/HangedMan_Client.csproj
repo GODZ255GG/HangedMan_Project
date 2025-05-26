@@ -57,7 +57,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connected Services\GameServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\PlayerServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\WordServices\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -75,7 +85,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Views\LanguageConverter.cs" />
+    <Compile Include="Resources\LanguageConverter.cs" />
     <Compile Include="SingletonLoggin\SessionManager.cs" />
     <Compile Include="Views\Lobby.xaml.cs">
       <DependentUpon>Lobby.xaml</DependentUpon>
@@ -92,6 +102,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\WinDialog.xaml.cs">
+      <DependentUpon>WinDialog.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
@@ -113,6 +126,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\WinDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -123,6 +140,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Connected Services\GameServices\GameServices.wsdl" />
+    <None Include="Connected Services\GameServices\GameServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameServices\GameServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameServices\GameServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GameServices\HangedMan_Client.GameServices.Match.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\PlayerServices\HangedMan_Client.PlayerServices.Player.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -134,6 +164,22 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\PlayerServices\PlayerServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WordServices\HangedMan_Client.WordServices.Category.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WordServices\HangedMan_Client.WordServices.Word.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WordServices\WordServices.wsdl" />
+    <None Include="Connected Services\WordServices\WordServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WordServices\WordServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WordServices\WordServices2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -148,7 +194,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\GameServices\" />
     <WCFMetadataStorage Include="Connected Services\PlayerServices\" />
+    <WCFMetadataStorage Include="Connected Services\WordServices\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\PlayerServices\PlayerServices.disco" />
@@ -191,13 +239,56 @@
     <Resource Include="Resources\iconLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\iconControl.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\iconPlus.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\iconAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconPlayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconControl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WordServices\WordServices.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WordServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WordServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WordServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\GameServices\GameServices.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\GameServices\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\GameServices\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\GameServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconEmpty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconCheck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconSad-face.png" />
+    <Resource Include="Resources\iconWin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

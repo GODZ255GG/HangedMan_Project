@@ -162,24 +162,19 @@
     </Page.Resources>
 
     <Grid>
-        <Rectangle>
-            <Rectangle.Fill>
+        <Border CornerRadius="20">
+            <Border.Background>
                 <ImageBrush ImageSource="/Resources/Wallpaper.png"/>
-            </Rectangle.Fill>
-        </Rectangle>
+            </Border.Background>
+        </Border>
 
-        <Rectangle>
-            <Rectangle.Fill>
-                <SolidColorBrush Color="Gray" Opacity="0.7"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        
+        <Border CornerRadius="20" Background="Gray" Opacity="0.7"/>
+
         <Border Width="600" 
                 Height="730"
                 Background="#E5E7EB" 
                 CornerRadius="10" 
                 BorderThickness="1"
-                Margin="0,-40,0,0"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center">
 

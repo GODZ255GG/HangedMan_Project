@@ -187,6 +187,43 @@
             </Setter>
         </Style>
 
+        <Style x:Key="ExitButtonStyle" TargetType="Button">
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Label Content="{x:Static p:Resources.ExitGameButton}" Foreground="White" FontWeight="Bold" FontSize="16"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="#FFE54646"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#D32F2F"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#B71C1C"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Opacity" Value="0.6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="BackButtonStyle" TargetType="Button">
             <Setter Property="ContentTemplate">
                 <Setter.Value>
@@ -219,22 +256,16 @@
     </Page.Resources>
 
     <Grid>
-        <!-- Fondo con opacidad -->
-        <Rectangle>
-            <Rectangle.Fill>
+        <Border CornerRadius="20">
+            <Border.Background>
                 <ImageBrush ImageSource="/Resources/Wallpaper.png"/>
-            </Rectangle.Fill>
-        </Rectangle>
+            </Border.Background>
+        </Border>
 
-        <Rectangle>
-            <Rectangle.Fill>
-                <SolidColorBrush Color="Gray" Opacity="0.7"/>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Border CornerRadius="20" Background="Gray" Opacity="0.7"/>
 
-        <!-- Contenedor principal -->
         <Border Width="500" 
-                Height="550"
+                Height="600"
                 Background="#E5E7EB" 
                 CornerRadius="10" 
                 BorderThickness="1"
@@ -318,6 +349,10 @@
                             Width="420" Height="45" Style="{StaticResource CreateButtonStyle}"
                             Background="#FF4F46E5"
                             Margin="0,0,0,10" Click="BtnLogin_Click" BorderBrush="{x:Null}"/>
+                    <Button x:Name="btnExit" 
+                                    Width="420" Height="45" Style="{StaticResource ExitButtonStyle}"
+                                    Background="#FFE54646"
+                                    Margin="0,0,0,10" BorderBrush="{x:Null}" Click="BtnExit_Click"/>               
                     <Button x:Name="btnCreate"
                             Width="420" Height="45" Foreground="#FF007ACC" Style="{StaticResource BackButtonStyle}"
                             FontSize="16"  Background="{x:Null}" BorderBrush="{x:Null}" Click="btnCreate_Click"/>

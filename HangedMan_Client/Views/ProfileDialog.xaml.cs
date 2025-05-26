@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HangedMan_Client.PlayerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,6 +18,25 @@ namespace HangedMan_Client.Views
         public ProfileDialog()
         {
             InitializeComponent();
+            ShowInformationPlayer();
+        }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.goToLoginView();
+        }
+
+        private void ShowInformationPlayer()
+        {
+            Player player = SessionManager.Instance.LoggedInPlayer;
+            lblPlayerNickname.Content = player.NickName;
         }
     }
 }
