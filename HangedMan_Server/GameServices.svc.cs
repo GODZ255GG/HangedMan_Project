@@ -27,5 +27,10 @@ namespace HangedMan_Server
         {
             return MatchDTO.initMatch(guestID, matchID);
         }
+
+        public string getGuestNickName(int playerID)
+        {
+            return MatchDTO.getGuestNickName(playerID);
+        }
     }
 }

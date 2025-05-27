@@ -261,6 +261,12 @@ namespace HangedMan_Client.GameServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameServices/initMatch", ReplyAction="http://tempuri.org/IGameServices/initMatchResponse")]
         System.Threading.Tasks.Task<bool> initMatchAsync(int guestID, int matchID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameServices/getGuestNickName", ReplyAction="http://tempuri.org/IGameServices/getGuestNickNameResponse")]
+        string getGuestNickName(int playerID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameServices/getGuestNickName", ReplyAction="http://tempuri.org/IGameServices/getGuestNickNameResponse")]
+        System.Threading.Tasks.Task<string> getGuestNickNameAsync(int playerID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -320,6 +326,14 @@ namespace HangedMan_Client.GameServices {
         
         public System.Threading.Tasks.Task<bool> initMatchAsync(int guestID, int matchID) {
             return base.Channel.initMatchAsync(guestID, matchID);
+        }
+        
+        public string getGuestNickName(int playerID) {
+            return base.Channel.getGuestNickName(playerID);
+        }
+        
+        public System.Threading.Tasks.Task<string> getGuestNickNameAsync(int playerID) {
+            return base.Channel.getGuestNickNameAsync(playerID);
         }
     }
 }

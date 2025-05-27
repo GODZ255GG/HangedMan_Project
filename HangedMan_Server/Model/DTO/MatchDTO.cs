@@ -95,5 +95,25 @@ namespace HangedMan_Server.Model.DTO
                 throw ex;
             }
         }
+
+        public static string getGuestNickName(int playerID)
+        {
+            try
+            {
+                using (var connection = ConnectionDB.getConnection())
+                {
+                    connection.Open();
+                    DataContext dataContext = new DataContext(connection);
+                    var nickName = (from nic in dataContext.GetTable<Player>()
+                                    where nic.PlayerID == playerID
+                                    select nic.NickName).FirstOrDefault();
+                    return nickName;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
