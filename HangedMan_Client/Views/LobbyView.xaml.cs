@@ -15,7 +15,7 @@ namespace HangedMan_Client.Views
     /// <summary>
     /// Lógica de interacción para Lobby.xaml
     /// </summary>
-    public partial class Lobby : Page
+    public partial class LobbyView : Page
     {
         private int matchLanguage;
         private DispatcherTimer dispatcherTimer;
@@ -25,7 +25,7 @@ namespace HangedMan_Client.Views
         WordServicesClient wordServicesClient = new WordServicesClient();
         GameServicesClient gameServicesClient = new GameServicesClient();
 
-        public Lobby()
+        public LobbyView()
         {
             InitializeComponent();
             ShowInformationPlayer();

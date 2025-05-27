@@ -172,7 +172,7 @@
 
         <Border Width="600" 
                 Height="730"
-                Background="#E5E7EB" 
+                Background="#FFD7D8DA" 
                 CornerRadius="10" 
                 BorderThickness="1"
                 VerticalAlignment="Center"

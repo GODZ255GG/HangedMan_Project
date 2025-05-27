@@ -16,5 +16,7 @@ namespace HangedMan_Server
         bool telephoneAlreadyExist(string telephone);
         [OperationContract]
         Player logIn(string email, string password);
+        [OperationContract]
+        bool updatePlayerProfile(Player updatePlayer);
     }
 }
