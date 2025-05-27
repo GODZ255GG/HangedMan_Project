@@ -203,6 +203,12 @@ namespace HangedMan_Client.PlayerServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/logIn", ReplyAction="http://tempuri.org/IPlayerServices/logInResponse")]
         System.Threading.Tasks.Task<HangedMan_Client.PlayerServices.Player> logInAsync(string email, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/updatePlayerProfile", ReplyAction="http://tempuri.org/IPlayerServices/updatePlayerProfileResponse")]
+        bool updatePlayerProfile(HangedMan_Client.PlayerServices.Player updatePlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/updatePlayerProfile", ReplyAction="http://tempuri.org/IPlayerServices/updatePlayerProfileResponse")]
+        System.Threading.Tasks.Task<bool> updatePlayerProfileAsync(HangedMan_Client.PlayerServices.Player updatePlayer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -270,6 +276,14 @@ namespace HangedMan_Client.PlayerServices {
         
         public System.Threading.Tasks.Task<HangedMan_Client.PlayerServices.Player> logInAsync(string email, string password) {
             return base.Channel.logInAsync(email, password);
+        }
+        
+        public bool updatePlayerProfile(HangedMan_Client.PlayerServices.Player updatePlayer) {
+            return base.Channel.updatePlayerProfile(updatePlayer);
+        }
+        
+        public System.Threading.Tasks.Task<bool> updatePlayerProfileAsync(HangedMan_Client.PlayerServices.Player updatePlayer) {
+            return base.Channel.updatePlayerProfileAsync(updatePlayer);
         }
     }
 }

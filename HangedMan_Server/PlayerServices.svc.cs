@@ -29,5 +29,10 @@ namespace HangedMan_Server
         {
             return PlayerDTO.logIn(email, password);
         }
+
+        public bool updatePlayerProfile(Player updatePlayer)
+        {
+            return PlayerDTO.updatePlayerProfile(updatePlayer);
+        }
     }
 }

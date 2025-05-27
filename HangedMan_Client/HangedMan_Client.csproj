@@ -87,14 +87,20 @@
     </Compile>
     <Compile Include="Resources\LanguageConverter.cs" />
     <Compile Include="SingletonLoggin\SessionManager.cs" />
-    <Compile Include="Views\Lobby.xaml.cs">
-      <DependentUpon>Lobby.xaml</DependentUpon>
+    <Compile Include="Views\EditProfileView.xaml.cs">
+      <DependentUpon>EditProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LobbyView.xaml.cs">
+      <DependentUpon>LobbyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProfileDialog.xaml.cs">
       <DependentUpon>ProfileDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfileView.xaml.cs">
+      <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
@@ -110,7 +116,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Lobby.xaml">
+    <Page Include="Views\EditProfileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LobbyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProfileDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfileView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -289,6 +303,21 @@
   <ItemGroup>
     <Resource Include="Resources\iconSad-face.png" />
     <Resource Include="Resources\iconWin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconTrophy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconBackLobby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconCancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\wallpaperV2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

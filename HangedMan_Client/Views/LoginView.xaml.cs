@@ -55,7 +55,7 @@ namespace HangedMan_Client.Views
                         MessageBox.Show(messageComplete);
                         SessionManager.Instance.Login(player);
 
-                        NavigationService.Navigate(new Lobby());
+                        NavigationService.Navigate(new LobbyView());
                     }
                     else
                     {

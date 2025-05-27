@@ -1,12 +1,5 @@
 ﻿using HangedMan_Client.PlayerServices;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace HangedMan_Client.Views
 {
@@ -37,6 +30,13 @@ namespace HangedMan_Client.Views
         {
             Player player = SessionManager.Instance.LoggedInPlayer;
             lblPlayerNickname.Content = player.NickName;
+        }
+
+        private void BtnViewProfile_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.frame.Navigate(new ProfileView());
         }
     }
 }

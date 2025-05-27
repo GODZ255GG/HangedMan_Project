@@ -1,4 +1,5 @@
 ﻿using HangedMan_Server.Model.POCO;
+using System;
 using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Linq;
@@ -87,6 +88,39 @@ namespace HangedMan_Server.Model.DTO
             catch (SqlException ex)
             {
                 throw ex;
+            }
+        }
+
+        public static bool updatePlayerProfile(Player updatedPlayer)
+        {
+            try
+            {
+                var connection = ConnectionDB.getConnection();
+                connection.Open();
+                DataContext dataContext = new DataContext(connection);
+                var playerToUpdate = dataContext.GetTable<Player>().FirstOrDefault(pl => pl.PlayerID == updatedPlayer.PlayerID);
+
+                if (playerToUpdate != null)
+                {
+                    playerToUpdate.FullName = updatedPlayer.FullName;
+                    playerToUpdate.NickName = updatedPlayer.NickName;
+                    playerToUpdate.Email = updatedPlayer.Email;
+                    playerToUpdate.PhoneNumber = updatedPlayer.PhoneNumber;
+                    playerToUpdate.Password = updatedPlayer.Password;
+                    playerToUpdate.BirthDate = updatedPlayer.BirthDate;
+
+                    dataContext.SubmitChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al actualizar el perfil del jugador: {ex.Message}");
+                return false;
             }
         }
     }
