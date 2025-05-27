@@ -31,6 +31,12 @@
   <wsdl:message name="IGameServices_initMatch_OutputMessage">
     <wsdl:part name="parameters" element="tns:initMatchResponse" />
   </wsdl:message>
+  <wsdl:message name="IGameServices_getGuestNickName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getGuestNickName" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_getGuestNickName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getGuestNickNameResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGameServices">
     <wsdl:operation name="createMatch">
       <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/createMatch" message="tns:IGameServices_createMatch_InputMessage" />
@@ -47,6 +53,10 @@
     <wsdl:operation name="initMatch">
       <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/initMatch" message="tns:IGameServices_initMatch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/initMatchResponse" message="tns:IGameServices_initMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getGuestNickName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/getGuestNickName" message="tns:IGameServices_getGuestNickName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/getGuestNickNameResponse" message="tns:IGameServices_getGuestNickName_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGameServices" type="tns:IGameServices">
@@ -80,6 +90,15 @@
     </wsdl:operation>
     <wsdl:operation name="initMatch">
       <soap:operation soapAction="http://tempuri.org/IGameServices/initMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGuestNickName">
+      <soap:operation soapAction="http://tempuri.org/IGameServices/getGuestNickName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

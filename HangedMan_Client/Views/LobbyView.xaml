@@ -58,7 +58,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <Style x:Key="CreateButtonStyle" TargetType="Button">
             <Setter Property="ContentTemplate">
                 <Setter.Value>
@@ -84,7 +84,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <Style x:Key="LanguageButtonStyle" TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
@@ -117,8 +117,6 @@
             </Setter>
         </Style>
     </Page.Resources>
-
-
 
     <Grid>
         <Border CornerRadius="20" Background="White"/>

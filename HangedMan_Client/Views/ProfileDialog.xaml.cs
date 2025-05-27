@@ -38,5 +38,12 @@ namespace HangedMan_Client.Views
             var mainWindow = Application.Current.MainWindow as MainWindow;
             mainWindow.frame.Navigate(new ProfileView());
         }
+
+        private void BtnViewMatchHistory_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow.frame.Navigate(new MatchHistoryView());
+        }
     }
 }
