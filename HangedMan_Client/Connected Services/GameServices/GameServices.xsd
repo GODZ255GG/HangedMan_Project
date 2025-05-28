@@ -72,4 +72,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="isThereGuest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="matchID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="isThereGuestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isThereGuestResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="leaveMatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="matchID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="leaveMatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="leaveMatchResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

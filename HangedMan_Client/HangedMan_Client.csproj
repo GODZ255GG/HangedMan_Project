@@ -87,6 +87,9 @@
     </Compile>
     <Compile Include="Resources\LanguageConverter.cs" />
     <Compile Include="SingletonLoggin\SessionManager.cs" />
+    <Compile Include="Views\ChallengedView.xaml.cs">
+      <DependentUpon>ChallengedView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditProfileView.xaml.cs">
       <DependentUpon>EditProfileView.xaml</DependentUpon>
     </Compile>
@@ -112,10 +115,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\WaitingRoomView.xaml.cs">
+      <DependentUpon>WaitingRoomView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WinDialog.xaml.cs">
       <DependentUpon>WinDialog.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChallengedView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WaitingRoomView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -325,6 +339,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\wallpaperV2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\waitinRoomHangedMan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\titleHangedMan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\0.jpg" />
+    <Resource Include="Resources\1.jpg" />
+    <Resource Include="Resources\2.jpg" />
+    <Resource Include="Resources\3.jpg" />
+    <Resource Include="Resources\4.jpg" />
+    <Resource Include="Resources\5.jpg" />
+    <Resource Include="Resources\6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

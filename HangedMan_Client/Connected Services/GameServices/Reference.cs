@@ -267,6 +267,18 @@ namespace HangedMan_Client.GameServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameServices/getGuestNickName", ReplyAction="http://tempuri.org/IGameServices/getGuestNickNameResponse")]
         System.Threading.Tasks.Task<string> getGuestNickNameAsync(int playerID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameServices/isThereGuest", ReplyAction="http://tempuri.org/IGameServices/isThereGuestResponse")]
+        bool isThereGuest(int matchID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameServices/isThereGuest", ReplyAction="http://tempuri.org/IGameServices/isThereGuestResponse")]
+        System.Threading.Tasks.Task<bool> isThereGuestAsync(int matchID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameServices/leaveMatch", ReplyAction="http://tempuri.org/IGameServices/leaveMatchResponse")]
+        bool leaveMatch(int matchID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameServices/leaveMatch", ReplyAction="http://tempuri.org/IGameServices/leaveMatchResponse")]
+        System.Threading.Tasks.Task<bool> leaveMatchAsync(int matchID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -334,6 +346,22 @@ namespace HangedMan_Client.GameServices {
         
         public System.Threading.Tasks.Task<string> getGuestNickNameAsync(int playerID) {
             return base.Channel.getGuestNickNameAsync(playerID);
+        }
+        
+        public bool isThereGuest(int matchID) {
+            return base.Channel.isThereGuest(matchID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> isThereGuestAsync(int matchID) {
+            return base.Channel.isThereGuestAsync(matchID);
+        }
+        
+        public bool leaveMatch(int matchID) {
+            return base.Channel.leaveMatch(matchID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> leaveMatchAsync(int matchID) {
+            return base.Channel.leaveMatchAsync(matchID);
         }
     }
 }

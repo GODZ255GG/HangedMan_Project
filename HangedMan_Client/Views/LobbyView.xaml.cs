@@ -131,9 +131,68 @@ namespace HangedMan_Client.Views
             matchLanguage = 2;
         }
 
-        private void BtnCreateGame_Click(object sender, RoutedEventArgs e)
+        private async void BtnCreateGame_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (allSelectioned())
+                {
+                    Match newMatch = createNewMatch();
+                    Match confirmation = await gameServicesClient.createMatchAsync(newMatch);
+                    if (confirmation != null)
+                    {
+                        string message = Properties.Resources.MatchCreatedMessage;
+                        MessageBox.Show(message);
+                        NavigationService.Navigate(new WaitingRoomView(confirmation));
+                    }
+                }
+                else
+                {
+                    string message = Properties.Resources.WarningCreateMatch;
+                    MessageBox.Show(message);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
 
+        private bool allSelectioned()
+        {
+            if (cbxWord.SelectedItem != null && cbxCategory != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private Match createNewMatch()
+        {
+            try
+            {
+                Player player = SessionManager.Instance.LoggedInPlayer;
+                Word selectedWord = (Word)cbxWord.SelectedItem;
+
+                Match newMatch = new Match();
+                newMatch.WordID = selectedWord.WordID;
+                newMatch.ChallengerID = player.PlayerID;
+                newMatch.StatusMatchID = 1;
+                newMatch.GuestID = null;
+                newMatch.WinnerID = null;
+                newMatch.DateMatch = DateTime.Now.ToString(("dd/MM/yyyy"));
+                newMatch.SelectedLetter = null;
+                newMatch.RemainingAttempts = 6;
+                newMatch.NickNameChallenger = player.NickName;
+                newMatch.EmailChallenger = player.Email;
+                newMatch.MatchLanguage = matchLanguage;
+
+                return newMatch;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private void BtnJoinMatch_Click(object sender, RoutedEventArgs e)
