@@ -115,5 +115,50 @@ namespace HangedMan_Server.Model.DTO
                 throw ex;
             }
         }
+
+        public static bool leaveMatch(int matchID)
+        {
+            try
+            {
+                var connection = ConnectionDB.getConnection();
+                connection.Open();
+                DataContext dataContext = new DataContext(connection);
+                var matchToLeave = dataContext.GetTable<Match>().FirstOrDefault(mat => mat.MatchID == matchID);
+                if (matchToLeave != null)
+                {
+                    matchToLeave.StatusMatchID = 2;
+                    dataContext.SubmitChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool isThereGuest(int matchID)
+        {
+            try
+            {
+                using (var connection = ConnectionDB.getConnection())
+                {
+                    connection.Open();
+                    DataContext dataContext = new DataContext(connection);
+                    var guest = (from gue in dataContext.GetTable<Match>()
+                                 where gue.MatchID == matchID && gue.GuestID != null
+                                 select gue.GuestID).FirstOrDefault();
+                    return guest != null;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

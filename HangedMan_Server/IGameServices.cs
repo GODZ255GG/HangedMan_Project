@@ -18,5 +18,10 @@ namespace HangedMan_Server
         bool initMatch(int guestID, int matchID);
         [OperationContract]
         string getGuestNickName(int playerID);
+
+        [OperationContract]
+        bool isThereGuest(int matchID);
+        [OperationContract]
+        bool leaveMatch(int matchID);
     }
 }

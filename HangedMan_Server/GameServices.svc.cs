@@ -32,5 +32,15 @@ namespace HangedMan_Server
         {
             return MatchDTO.getGuestNickName(playerID);
         }
+
+        public bool isThereGuest(int matchID)
+        {
+            return MatchDTO.isThereGuest(matchID);
+        }
+
+        public bool leaveMatch(int matchID)
+        {
+            return MatchDTO.leaveMatch(matchID);
+        }
     }
 }

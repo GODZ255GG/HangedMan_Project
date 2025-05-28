@@ -37,6 +37,18 @@
   <wsdl:message name="IGameServices_getGuestNickName_OutputMessage">
     <wsdl:part name="parameters" element="tns:getGuestNickNameResponse" />
   </wsdl:message>
+  <wsdl:message name="IGameServices_isThereGuest_InputMessage">
+    <wsdl:part name="parameters" element="tns:isThereGuest" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_isThereGuest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:isThereGuestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_leaveMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:leaveMatch" />
+  </wsdl:message>
+  <wsdl:message name="IGameServices_leaveMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:leaveMatchResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGameServices">
     <wsdl:operation name="createMatch">
       <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/createMatch" message="tns:IGameServices_createMatch_InputMessage" />
@@ -57,6 +69,14 @@
     <wsdl:operation name="getGuestNickName">
       <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/getGuestNickName" message="tns:IGameServices_getGuestNickName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/getGuestNickNameResponse" message="tns:IGameServices_getGuestNickName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="isThereGuest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/isThereGuest" message="tns:IGameServices_isThereGuest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/isThereGuestResponse" message="tns:IGameServices_isThereGuest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="leaveMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameServices/leaveMatch" message="tns:IGameServices_leaveMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameServices/leaveMatchResponse" message="tns:IGameServices_leaveMatch_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGameServices" type="tns:IGameServices">
@@ -99,6 +119,24 @@
     </wsdl:operation>
     <wsdl:operation name="getGuestNickName">
       <soap:operation soapAction="http://tempuri.org/IGameServices/getGuestNickName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isThereGuest">
+      <soap:operation soapAction="http://tempuri.org/IGameServices/isThereGuest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="leaveMatch">
+      <soap:operation soapAction="http://tempuri.org/IGameServices/leaveMatch" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
