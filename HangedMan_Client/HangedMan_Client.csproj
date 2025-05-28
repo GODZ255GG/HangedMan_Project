@@ -90,6 +90,9 @@
     <Compile Include="Views\ChallengedView.xaml.cs">
       <DependentUpon>ChallengedView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ChallengerView.xaml.cs">
+      <DependentUpon>ChallengerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditProfileView.xaml.cs">
       <DependentUpon>EditProfileView.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ChallengedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChallengerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
