@@ -10,37 +10,37 @@ namespace HangedMan_Server
     {
         public List<Category> GetCategories()
         {
-            return CategoryDTO.getCategories();
+            return CategoryDTO.GetCategories();
         }
 
-        public string getClueEnglish(int wordID)
+        public string GetClueEnglish(int wordID)
         {
-            return WordDTO.getClueEnglish(wordID);
+            return WordDTO.GetClueEnglish(wordID);
         }
 
-        public string getClueSpanish(int wordID)
+        public string GetClueSpanish(int wordID)
         {
-            return WordDTO.getClueSpanish(wordID);
+            return WordDTO.GetClueSpanish(wordID);
         }
 
-        public string getWordEnglish(int wordID)
+        public string GetWordEnglish(int wordID)
         {
-            return WordDTO.getWordEnglish(wordID);
+            return WordDTO.GetWordEnglish(wordID);
         }
 
-        public string getWordSpanish(int wordID)
+        public string GetWordSpanish(int wordID)
         {
-            return WordDTO.getWordSpanish(wordID);
+            return WordDTO.GetWordSpanish(wordID);
         }
 
         public List<Word> GetWordsPerCategory(int category)
         {
-            return WordDTO.getWordsPerCategory(category);
+            return WordDTO.GetWordsPerCategory(category);
         }
 
-        public string getCategoryByWordID(int wordID, int matchLanguage)
+        public string GetCategoryByWordID(int wordID, int matchLanguage)
         {
-            return Model.DTO.WordDTO.getCategoryByWordID(wordID, matchLanguage);
+            return Model.DTO.WordDTO.GetCategoryByWordID(wordID, matchLanguage);
         }
 
     }

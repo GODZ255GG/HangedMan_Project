@@ -231,35 +231,35 @@ namespace HangedMan_Client.WordServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/GetWordsPerCategory", ReplyAction="http://tempuri.org/IWordServices/GetWordsPerCategoryResponse")]
         System.Threading.Tasks.Task<HangedMan_Client.WordServices.Word[]> GetWordsPerCategoryAsync(int category);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/getWordSpanish", ReplyAction="http://tempuri.org/IWordServices/getWordSpanishResponse")]
-        string getWordSpanish(int wordID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/GetWordSpanish", ReplyAction="http://tempuri.org/IWordServices/GetWordSpanishResponse")]
+        string GetWordSpanish(int wordID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/getWordSpanish", ReplyAction="http://tempuri.org/IWordServices/getWordSpanishResponse")]
-        System.Threading.Tasks.Task<string> getWordSpanishAsync(int wordID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/GetWordSpanish", ReplyAction="http://tempuri.org/IWordServices/GetWordSpanishResponse")]
+        System.Threading.Tasks.Task<string> GetWordSpanishAsync(int wordID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/getWordEnglish", ReplyAction="http://tempuri.org/IWordServices/getWordEnglishResponse")]
-        string getWordEnglish(int wordID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/GetWordEnglish", ReplyAction="http://tempuri.org/IWordServices/GetWordEnglishResponse")]
+        string GetWordEnglish(int wordID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/getWordEnglish", ReplyAction="http://tempuri.org/IWordServices/getWordEnglishResponse")]
-        System.Threading.Tasks.Task<string> getWordEnglishAsync(int wordID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/GetWordEnglish", ReplyAction="http://tempuri.org/IWordServices/GetWordEnglishResponse")]
+        System.Threading.Tasks.Task<string> GetWordEnglishAsync(int wordID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/getClueSpanish", ReplyAction="http://tempuri.org/IWordServices/getClueSpanishResponse")]
-        string getClueSpanish(int wordID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/GetClueSpanish", ReplyAction="http://tempuri.org/IWordServices/GetClueSpanishResponse")]
+        string GetClueSpanish(int wordID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/getClueSpanish", ReplyAction="http://tempuri.org/IWordServices/getClueSpanishResponse")]
-        System.Threading.Tasks.Task<string> getClueSpanishAsync(int wordID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/GetClueSpanish", ReplyAction="http://tempuri.org/IWordServices/GetClueSpanishResponse")]
+        System.Threading.Tasks.Task<string> GetClueSpanishAsync(int wordID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/getClueEnglish", ReplyAction="http://tempuri.org/IWordServices/getClueEnglishResponse")]
-        string getClueEnglish(int wordID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/GetClueEnglish", ReplyAction="http://tempuri.org/IWordServices/GetClueEnglishResponse")]
+        string GetClueEnglish(int wordID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/getClueEnglish", ReplyAction="http://tempuri.org/IWordServices/getClueEnglishResponse")]
-        System.Threading.Tasks.Task<string> getClueEnglishAsync(int wordID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/GetClueEnglish", ReplyAction="http://tempuri.org/IWordServices/GetClueEnglishResponse")]
+        System.Threading.Tasks.Task<string> GetClueEnglishAsync(int wordID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/getCategoryByWordID", ReplyAction="http://tempuri.org/IWordServices/getCategoryByWordIDResponse")]
-        string getCategoryByWordID(int wordID, int matchLanguage);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/GetCategoryByWordID", ReplyAction="http://tempuri.org/IWordServices/GetCategoryByWordIDResponse")]
+        string GetCategoryByWordID(int wordID, int matchLanguage);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/getCategoryByWordID", ReplyAction="http://tempuri.org/IWordServices/getCategoryByWordIDResponse")]
-        System.Threading.Tasks.Task<string> getCategoryByWordIDAsync(int wordID, int matchLanguage);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/GetCategoryByWordID", ReplyAction="http://tempuri.org/IWordServices/GetCategoryByWordIDResponse")]
+        System.Threading.Tasks.Task<string> GetCategoryByWordIDAsync(int wordID, int matchLanguage);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -305,44 +305,44 @@ namespace HangedMan_Client.WordServices {
             return base.Channel.GetWordsPerCategoryAsync(category);
         }
         
-        public string getWordSpanish(int wordID) {
-            return base.Channel.getWordSpanish(wordID);
+        public string GetWordSpanish(int wordID) {
+            return base.Channel.GetWordSpanish(wordID);
         }
         
-        public System.Threading.Tasks.Task<string> getWordSpanishAsync(int wordID) {
-            return base.Channel.getWordSpanishAsync(wordID);
+        public System.Threading.Tasks.Task<string> GetWordSpanishAsync(int wordID) {
+            return base.Channel.GetWordSpanishAsync(wordID);
         }
         
-        public string getWordEnglish(int wordID) {
-            return base.Channel.getWordEnglish(wordID);
+        public string GetWordEnglish(int wordID) {
+            return base.Channel.GetWordEnglish(wordID);
         }
         
-        public System.Threading.Tasks.Task<string> getWordEnglishAsync(int wordID) {
-            return base.Channel.getWordEnglishAsync(wordID);
+        public System.Threading.Tasks.Task<string> GetWordEnglishAsync(int wordID) {
+            return base.Channel.GetWordEnglishAsync(wordID);
         }
         
-        public string getClueSpanish(int wordID) {
-            return base.Channel.getClueSpanish(wordID);
+        public string GetClueSpanish(int wordID) {
+            return base.Channel.GetClueSpanish(wordID);
         }
         
-        public System.Threading.Tasks.Task<string> getClueSpanishAsync(int wordID) {
-            return base.Channel.getClueSpanishAsync(wordID);
+        public System.Threading.Tasks.Task<string> GetClueSpanishAsync(int wordID) {
+            return base.Channel.GetClueSpanishAsync(wordID);
         }
         
-        public string getClueEnglish(int wordID) {
-            return base.Channel.getClueEnglish(wordID);
+        public string GetClueEnglish(int wordID) {
+            return base.Channel.GetClueEnglish(wordID);
         }
         
-        public System.Threading.Tasks.Task<string> getClueEnglishAsync(int wordID) {
-            return base.Channel.getClueEnglishAsync(wordID);
+        public System.Threading.Tasks.Task<string> GetClueEnglishAsync(int wordID) {
+            return base.Channel.GetClueEnglishAsync(wordID);
         }
         
-        public string getCategoryByWordID(int wordID, int matchLanguage) {
-            return base.Channel.getCategoryByWordID(wordID, matchLanguage);
+        public string GetCategoryByWordID(int wordID, int matchLanguage) {
+            return base.Channel.GetCategoryByWordID(wordID, matchLanguage);
         }
         
-        public System.Threading.Tasks.Task<string> getCategoryByWordIDAsync(int wordID, int matchLanguage) {
-            return base.Channel.getCategoryByWordIDAsync(wordID, matchLanguage);
+        public System.Threading.Tasks.Task<string> GetCategoryByWordIDAsync(int wordID, int matchLanguage) {
+            return base.Channel.GetCategoryByWordIDAsync(wordID, matchLanguage);
         }
     }
 }

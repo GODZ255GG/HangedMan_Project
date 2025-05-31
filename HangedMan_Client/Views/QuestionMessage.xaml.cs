@@ -9,7 +9,6 @@ namespace HangedMan_Client.Views
     /// </summary>
     public partial class QuestionMessage : Window
     {
-        private MainWindow mainWindow;
         public QuestionMessage(string message)
         {
             InitializeComponent();

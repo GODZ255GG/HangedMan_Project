@@ -42,7 +42,7 @@ namespace HangedMan_Client.Views
             dispatcherTimer.Stop();
             try
             {
-                bool exit = gameServicesClient.leaveMatch(match.MatchID);
+                bool exit = gameServicesClient.LeaveMatch(match.MatchID);
                 if (exit)
                 {
                     string message = Properties.Resources.MatchLeaveMessage;
@@ -70,7 +70,7 @@ namespace HangedMan_Client.Views
 
         private void isThereGuest()
         {
-            bool isThereGuest = gameServicesClient.isThereGuest(match.MatchID);
+            bool isThereGuest = gameServicesClient.IsThereGuest(match.MatchID);
             if (isThereGuest)
             {
                 dispatcherTimer.Stop();

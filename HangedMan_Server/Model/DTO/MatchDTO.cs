@@ -8,7 +8,7 @@ namespace HangedMan_Server.Model.DTO
 {
     public class MatchDTO
     {
-        public static Match createMatch(Match newMatch)
+        public static Match CreateMatch(Match newMatch)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static List<Match> getMatchesAvaliables(int playerID)
+        public static List<Match> GetMatchesAvaliables(int playerID)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static List<Match> getMatchesPlayed(int playerID)
+        public static List<Match> GetMatchesPlayed(int playerID)
         {
             try
             {
@@ -69,7 +69,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static bool initMatch(int guestID, int matchID)
+        public static bool InitMatch(int guestID, int matchID)
         {
             try
             {
@@ -96,7 +96,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static string getGuestNickName(int playerID)
+        public static string GetGuestNickName(int playerID)
         {
             try
             {
@@ -116,7 +116,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static bool leaveMatch(int matchID)
+        public static bool LeaveMatch(int matchID)
         {
             try
             {
@@ -141,7 +141,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static bool isThereGuest(int matchID)
+        public static bool IsThereGuest(int matchID)
         {
             try
             {
@@ -161,7 +161,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static bool finishMatch(int matchID)
+        public static bool FinishMatch(int matchID)
         {
             try
             {
@@ -187,7 +187,7 @@ namespace HangedMan_Server.Model.DTO
 
         }
 
-        public static bool updateCharBD(char letter, int matchID)
+        public static bool UpdateCharBD(char letter, int matchID)
         {
             try
             {
@@ -212,7 +212,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static bool updateWinner(int playerID, int matchID)
+        public static bool UpdateWinner(int playerID, int matchID)
         {
             try
             {
@@ -239,7 +239,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static bool updateRemainingAttempts(int remainingAttempts, int matchID)
+        public static bool UpdateRemainingAttempts(int remainingAttempts, int matchID)
         {
             try
             {
@@ -266,7 +266,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static int getMatchStatus(int matchID)
+        public static int GetMatchStatus(int matchID)
         {
             try
             {
@@ -286,7 +286,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static char? getGuestLetter(int matchID)
+        public static char? GetGuestLetter(int matchID)
         {
             try
             {
@@ -306,7 +306,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static int getRemainingAttempts(int matchID)
+        public static int GetRemainingAttempts(int matchID)
         {
             try
             {
@@ -394,7 +394,7 @@ namespace HangedMan_Server.Model.DTO
         }
 
 
-        public static int? getWinnerID(int matchID)
+        public static int? GetWinnerID(int matchID)
         {
             try
             {

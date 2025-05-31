@@ -65,7 +65,7 @@ namespace HangedMan_Client.Views
                                 player.Password = txtPassword.Password.Trim();
                                 player.BirthDate = dpBirthDate.SelectedDate.Value.ToString("yyyy-MM-dd");
 
-                                bool confirmation = await playerServices.updatePlayerProfileAsync(player);
+                                bool confirmation = await playerServices.UpdatePlayerProfileAsync(player);
                                 if (confirmation)
                                 {
                                     string message = Properties.Resources.ConfirmationModify;

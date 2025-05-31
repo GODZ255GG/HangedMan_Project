@@ -59,7 +59,7 @@ namespace HangedMan_Client.Views
 
             try
             {
-                bool confirmation = gameServices.updateCharBD(selectedLetter, match.MatchID);
+                bool confirmation = gameServices.UpdateCharBD(selectedLetter, match.MatchID);
                 if (!confirmation)
                 {
                     var message = "Error al actualizar la letra en la base de datos";
@@ -78,7 +78,7 @@ namespace HangedMan_Client.Views
 
             try
             {
-                bool confirmation = gameServices.updateRemainingAttempts(remainingAttempts, match.MatchID);
+                bool confirmation = gameServices.UpdateRemainingAttempts(remainingAttempts, match.MatchID);
                 if (!confirmation)
                 {
                     var message = "Error al actualizar los intentos restantes";
@@ -148,11 +148,11 @@ namespace HangedMan_Client.Views
             {
                 if (match != null && match.MatchLanguage == 1)
                 {
-                    clueMatch = await wordServices.getClueSpanishAsync(match.WordID);
+                    clueMatch = await wordServices.GetClueSpanishAsync(match.WordID);
                 }
                 else if (match != null && match.MatchLanguage == 2)
                 {
-                    clueMatch = await wordServices.getClueEnglishAsync(match.WordID);
+                    clueMatch = await wordServices.GetClueEnglishAsync(match.WordID);
                 }
             }
             catch (Exception e)
@@ -169,11 +169,11 @@ namespace HangedMan_Client.Views
             {
                 if (match != null && match.MatchLanguage == 1)
                 {
-                    wordMatch = await wordServices.getWordSpanishAsync(match.WordID);
+                    wordMatch = await wordServices.GetWordSpanishAsync(match.WordID);
                 }
                 else if (match != null && match.MatchLanguage == 2)
                 {
-                    wordMatch = await wordServices.getWordEnglishAsync(match.WordID);
+                    wordMatch = await wordServices.GetWordEnglishAsync(match.WordID);
                 }
             }
             catch (Exception e)
@@ -221,8 +221,8 @@ namespace HangedMan_Client.Views
                 if (wordIsComplete())
                 {
                     Player player = SessionManager.Instance.LoggedInPlayer;
-                    gameServices.updateWinner(player.PlayerID, match.MatchID);
-                    gameServices.finishMatch(match.MatchID);
+                    gameServices.UpdateWinner(player.PlayerID, match.MatchID);
+                    gameServices.FinishMatch(match.MatchID);
                     gameServices.UpdatePointsEarned(match.MatchID, player.PlayerID);
                     string message = Properties.Resources.WinnerMatchMessageGuest;
                     var dialog = new WinDialog(message);
@@ -241,9 +241,9 @@ namespace HangedMan_Client.Views
                 if (remainingAttempts == 0)
                 {
                     string message = Properties.Resources.LosserMatchMessage;
-                    gameServices.updateWinner(match.ChallengerID, match.MatchID);
+                    gameServices.UpdateWinner(match.ChallengerID, match.MatchID);
                     gameServices.UpdatePointsEarned(match.MatchID, match.ChallengerID);
-                    gameServices.finishMatch(match.MatchID);
+                    gameServices.FinishMatch(match.MatchID);
                     var dialog = new LossDialog(message);
                     dialog.Owner = Application.Current.MainWindow;
                     dialog.ShowDialog();
@@ -282,7 +282,7 @@ namespace HangedMan_Client.Views
 
         private void checkMatchStatus()
         {
-            int matchStatus = gameServices.getMatchStatus(match.MatchID);
+            int matchStatus = gameServices.GetMatchStatus(match.MatchID);
             if (matchStatus == 2)
             {
                 string message = Properties.Resources.ChallengerLeaveMatchMessage;
@@ -326,7 +326,7 @@ namespace HangedMan_Client.Views
             try
             {
                 Player player = SessionManager.Instance.LoggedInPlayer;
-                bool exit = gameServices.leaveMatch(match.MatchID);
+                bool exit = gameServices.LeaveMatch(match.MatchID);
                 if (exit)
                 {
                     gameServices.PenalizeAbandon(player.PlayerID); 
@@ -352,7 +352,7 @@ namespace HangedMan_Client.Views
         {
             try
             {
-                string category = await Task.Run(() => wordServices.getCategoryByWordID(wordID, matchLanguage));
+                string category = await Task.Run(() => wordServices.GetCategoryByWordID(wordID, matchLanguage));
                 lblCategory.Content = category;
             }
             catch (Exception)

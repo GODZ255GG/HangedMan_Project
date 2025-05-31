@@ -55,7 +55,7 @@ namespace HangedMan_Client.Views
             try
             {
                 Player player = SessionManager.Instance.LoggedInPlayer;
-                Match[] aux = await gameServicesClient.getMatchListAsync(player.PlayerID);
+                Match[] aux = await gameServicesClient.GetMatchListAsync(player.PlayerID);
                 matchesAvaliables = aux.ToList();
 
                 MatchesItemsControl.ItemsSource = matchesAvaliables;
@@ -136,7 +136,7 @@ namespace HangedMan_Client.Views
                 if (allSelectioned())
                 {
                     Match newMatch = createNewMatch();
-                    Match confirmation = await gameServicesClient.createMatchAsync(newMatch);
+                    Match confirmation = await gameServicesClient.CreateMatchAsync(newMatch);
                     if (confirmation != null)
                     {
                         string message = Properties.Resources.MatchCreatedMessage;
@@ -208,7 +208,7 @@ namespace HangedMan_Client.Views
                     try
                     {
                         Player user = SessionManager.Instance.LoggedInPlayer;
-                        gameServicesClient.initMatch(user.PlayerID, selectedMatch.MatchID);
+                        gameServicesClient.InitMatch(user.PlayerID, selectedMatch.MatchID);
                         string message = Properties.Resources.JoinGameMessage;
                         ShowMessage(message, 1);
                         dispatcherTimer.Stop();

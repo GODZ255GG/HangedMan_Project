@@ -8,7 +8,7 @@ namespace HangedMan_Server.Model.DTO
 {
     public class CategoryDTO
     {
-        public static List<Category> getCategories()
+        public static List<Category> GetCategories()
         {
             try
             {

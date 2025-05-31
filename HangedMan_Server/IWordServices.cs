@@ -12,14 +12,14 @@ namespace HangedMan_Server
         [OperationContract]
         List<Word> GetWordsPerCategory(int category);
         [OperationContract]
-        string getWordSpanish(int wordID);
+        string GetWordSpanish(int wordID);
         [OperationContract]
-        string getWordEnglish(int wordID);
+        string GetWordEnglish(int wordID);
         [OperationContract]
-        string getClueSpanish(int wordID);
+        string GetClueSpanish(int wordID);
         [OperationContract]
-        string getClueEnglish(int wordID);
+        string GetClueEnglish(int wordID);
         [OperationContract]
-        string getCategoryByWordID(int wordID, int matchLanguage);
+        string GetCategoryByWordID(int wordID, int matchLanguage);
     }
 }

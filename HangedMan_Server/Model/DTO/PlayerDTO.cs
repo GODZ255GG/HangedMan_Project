@@ -8,7 +8,7 @@ namespace HangedMan_Server.Model.DTO
 {
     public class PlayerDTO
     {
-        public static bool registerPlayer(Player newPlayer)
+        public static bool RegisterPlayer(Player newPlayer)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static bool emailAlreadyRegistered(string email)
+        public static bool EmailAlreadyRegistered(string email)
         {
             try
             {
@@ -41,7 +41,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static bool telephoneAlreadyRegistered(string telephone)
+        public static bool TelephoneAlreadyRegistered(string telephone)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static bool nicknameAlreadyRegistered(string nickname)
+        public static bool NicknameAlreadyRegistered(string nickname)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static Player logIn(string email, string password)
+        public static Player LogIn(string email, string password)
         {
             try
             {
@@ -91,7 +91,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static bool updatePlayerProfile(Player updatedPlayer)
+        public static bool UpdatePlayerProfile(Player updatedPlayer)
         {
             try
             {

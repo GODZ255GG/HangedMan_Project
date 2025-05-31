@@ -47,7 +47,7 @@ namespace HangedMan_Client.Views
                 }
                 else
                 {
-                    Player player = playerServices.logIn(email, password);
+                    Player player = playerServices.LogIn(email, password);
                     if (player != null)
                     {
                         string message = Properties.Resources.LogginMessage;

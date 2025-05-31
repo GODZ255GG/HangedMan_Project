@@ -8,7 +8,7 @@ namespace HangedMan_Server.Model.DTO
 {
     public class WordDTO
     {
-        public static List<Word> getWordsPerCategory(int category)
+        public static List<Word> GetWordsPerCategory(int category)
         {
             try
             {
@@ -27,7 +27,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static string getWordSpanish(int wordID)
+        public static string GetWordSpanish(int wordID)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static string getWordEnglish(int wordID)
+        public static string GetWordEnglish(int wordID)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static string getClueSpanish(int wordID)
+        public static string GetClueSpanish(int wordID)
         {
             try
             {
@@ -83,7 +83,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static string getClueEnglish(int wordID)
+        public static string GetClueEnglish(int wordID)
         {
             try
             {
@@ -101,7 +101,7 @@ namespace HangedMan_Server.Model.DTO
             }
         }
 
-        public static string getCategoryByWordID(int wordID, int matchLanguage)
+        public static string GetCategoryByWordID(int wordID, int matchLanguage)
         {
             try
             {
@@ -116,7 +116,6 @@ namespace HangedMan_Server.Model.DTO
                     var category = query.FirstOrDefault();
                     if (category == null)
                         return null;
-                    // 1 = Español, 2 = Inglés (ajusta si tu lógica es diferente)
                     return matchLanguage == 1 ? category.SpanishCategory : category.EnglishCategory;
                 }
             }
