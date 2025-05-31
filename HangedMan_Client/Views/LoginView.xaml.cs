@@ -43,7 +43,7 @@ namespace HangedMan_Client.Views
                 if (!checkCredentials(email, password))
                 {
                     string message = Properties.Resources.IncompleteLogginMessage;
-                    MessageBox.Show(message);
+                    ShowMessage(message, 2);
                 }
                 else
                 {
@@ -52,7 +52,7 @@ namespace HangedMan_Client.Views
                     {
                         string message = Properties.Resources.LogginMessage;
                         string messageComplete = message + " " + player.NickName;
-                        MessageBox.Show(messageComplete);
+                        ShowMessage(messageComplete, 1);
                         SessionManager.Instance.Login(player);
 
                         NavigationService.Navigate(new LobbyView());
@@ -60,13 +60,13 @@ namespace HangedMan_Client.Views
                     else
                     {
                         string message = Properties.Resources.ErrorLogginMessage;
-                        MessageBox.Show(message);
+                        ShowMessage(message, 3);
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                ShowMessage(ex.Message, 3);
             }
         }
 
@@ -84,6 +84,13 @@ namespace HangedMan_Client.Views
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.Close();
+        }
+
+        private void ShowMessage(string message, int type)
+        {
+            var dialog = new MessageBoxInformation(message, type);
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.ShowDialog();
         }
     }
 }

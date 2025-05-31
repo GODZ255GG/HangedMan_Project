@@ -42,10 +42,10 @@ namespace HangedMan_Client.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{Properties.Resources.ErrorLoadingHistory}: {ex.Message}",
-                              Properties.Resources.ErrorTitle,
-                              MessageBoxButton.OK,
-                              MessageBoxImage.Error);
+                var message = $"{Properties.Resources.ErrorLoadingHistory}: {ex.Message}";
+                var dialog = new MessageBoxInformation(message, 3);
+                dialog.Owner = Application.Current.MainWindow;
+                dialog.ShowDialog();
             }
         }
 
@@ -56,15 +56,15 @@ namespace HangedMan_Client.Views
             string emptyMessage = "";
             switch (Tabs.SelectedIndex)
             {
-                case 0: 
+                case 0:
                     filteredItems = allHistoryItems.Where(x => x.Result == Properties.Resources.MatchWon || x.Result == Properties.Resources.WonOpponentLeft);
                     emptyMessage = "No tienes partidas ganadas.";
                     break;
-                case 1: 
+                case 1:
                     filteredItems = allHistoryItems.Where(x => x.Result == Properties.Resources.MatchLost || x.Result == Properties.Resources.LostYouLeft);
                     emptyMessage = "No tienes partidas perdidas.";
                     break;
-                case 2: 
+                case 2:
                     filteredItems = allHistoryItems.Where(x => x.Result == Properties.Resources.MatchAbandoned);
                     emptyMessage = "No tienes partidas abandonadas.";
                     break;

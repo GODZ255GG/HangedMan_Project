@@ -8,6 +8,7 @@ namespace HangedMan_Client.Views
     /// </summary>
     public partial class ProfileView : Page
     {
+        PlayerServicesClient playerServicesClient = new PlayerServicesClient();
         public ProfileView()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace HangedMan_Client.Views
             txtEmail.Text = player.Email;
             txtTelephone.Text = player.PhoneNumber;
             txtBirthDate.Text = player.BirthDate;
-            lblGlobalScore.Content = player.PointsEarned + " Points";
+            lblGlobalScore.Content = playerServicesClient.GetPoints(player.PlayerID) + " " + "puntos";
         }
 
         private void BtnBackLobby_Click(object sender, System.Windows.RoutedEventArgs e)

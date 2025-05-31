@@ -1,5 +1,6 @@
 ﻿using HangedMan_Client.PlayerServices;
 using System.Windows;
+using System.Windows.Navigation;
 
 namespace HangedMan_Client.Views
 {
@@ -22,8 +23,17 @@ namespace HangedMan_Client.Views
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            var mainWindow = Application.Current.MainWindow as MainWindow;
-            mainWindow.goToLoginView();
+            string message = Properties.Resources.LogOutMessage;
+            var dialog = new QuestionMessage(message);
+            dialog.Owner = Application.Current.MainWindow;
+            bool? result = dialog.ShowDialog();
+
+            if (result == true)
+            {
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                mainWindow.goToLoginView();
+            }
+            
         }
 
         private void ShowInformationPlayer()

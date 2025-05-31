@@ -19,5 +19,7 @@ namespace HangedMan_Server
         string getClueSpanish(int wordID);
         [OperationContract]
         string getClueEnglish(int wordID);
+        [OperationContract]
+        string getCategoryByWordID(int wordID, int matchLanguage);
     }
 }

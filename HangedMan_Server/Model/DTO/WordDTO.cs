@@ -100,5 +100,30 @@ namespace HangedMan_Server.Model.DTO
                 throw ex;
             }
         }
+
+        public static string getCategoryByWordID(int wordID, int matchLanguage)
+        {
+            try
+            {
+                using (var connection = ConnectionDB.getConnection())
+                {
+                    connection.Open();
+                    DataContext dataContext = new DataContext(connection);
+                    var query = from w in dataContext.GetTable<Word>()
+                                join c in dataContext.GetTable<Category>() on w.CategoryID equals c.CategoryID
+                                where w.WordID == wordID
+                                select c;
+                    var category = query.FirstOrDefault();
+                    if (category == null)
+                        return null;
+                    // 1 = Español, 2 = Inglés (ajusta si tu lógica es diferente)
+                    return matchLanguage == 1 ? category.SpanishCategory : category.EnglishCategory;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

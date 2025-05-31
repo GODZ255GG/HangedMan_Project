@@ -123,5 +123,24 @@ namespace HangedMan_Server.Model.DTO
                 return false;
             }
         }
+
+        public static int GetPoints(int playerID)
+        {
+            try
+            {
+                var connection = ConnectionDB.getConnection();
+                connection.Open();
+                DataContext dataContext = new DataContext(connection);
+                var pointEarned = (from p in dataContext.GetTable<Player>()
+                                   where p .PlayerID == playerID
+                                   select p .PointsEarned).FirstOrDefault();
+                return pointEarned;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

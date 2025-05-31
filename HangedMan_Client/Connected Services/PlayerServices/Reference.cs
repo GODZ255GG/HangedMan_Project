@@ -209,6 +209,12 @@ namespace HangedMan_Client.PlayerServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/updatePlayerProfile", ReplyAction="http://tempuri.org/IPlayerServices/updatePlayerProfileResponse")]
         System.Threading.Tasks.Task<bool> updatePlayerProfileAsync(HangedMan_Client.PlayerServices.Player updatePlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/GetPoints", ReplyAction="http://tempuri.org/IPlayerServices/GetPointsResponse")]
+        int GetPoints(int playerID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/GetPoints", ReplyAction="http://tempuri.org/IPlayerServices/GetPointsResponse")]
+        System.Threading.Tasks.Task<int> GetPointsAsync(int playerID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -284,6 +290,14 @@ namespace HangedMan_Client.PlayerServices {
         
         public System.Threading.Tasks.Task<bool> updatePlayerProfileAsync(HangedMan_Client.PlayerServices.Player updatePlayer) {
             return base.Channel.updatePlayerProfileAsync(updatePlayer);
+        }
+        
+        public int GetPoints(int playerID) {
+            return base.Channel.GetPoints(playerID);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetPointsAsync(int playerID) {
+            return base.Channel.GetPointsAsync(playerID);
         }
     }
 }
