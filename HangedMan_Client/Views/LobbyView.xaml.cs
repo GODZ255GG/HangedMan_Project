@@ -73,10 +73,8 @@ namespace HangedMan_Client.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Properties.Resources.ErrorLoadingMatches + ": " + ex.Message,
-                              Properties.Resources.ErrorTitle,
-                              MessageBoxButton.OK,
-                              MessageBoxImage.Error);
+                string message = Properties.Resources.ErrorLoadingMatches + ": " + ex.Message;
+                ShowMessage(message, 3);
                 NoMatchesText.Visibility = Visibility.Visible;
                 MatchesScrollViewer.Visibility = Visibility.Collapsed;
             }
@@ -93,7 +91,7 @@ namespace HangedMan_Client.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                ShowMessage(ex.Message, 3);
             }
         }
 
@@ -108,7 +106,7 @@ namespace HangedMan_Client.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar las palabras: {ex.Message}");
+                ShowMessage($"Error al cargar las palabras: {ex.Message}", 3);
             }
         }
 
@@ -142,19 +140,19 @@ namespace HangedMan_Client.Views
                     if (confirmation != null)
                     {
                         string message = Properties.Resources.MatchCreatedMessage;
-                        MessageBox.Show(message);
+                        ShowMessage(message, 1);
                         NavigationService.Navigate(new WaitingRoomView(confirmation));
                     }
                 }
                 else
                 {
                     string message = Properties.Resources.WarningCreateMatch;
-                    MessageBox.Show(message);
+                    ShowMessage(message, 2);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                ShowMessage(ex.ToString(), 3);
             }
         }
 
@@ -210,16 +208,16 @@ namespace HangedMan_Client.Views
                     try
                     {
                         Player user = SessionManager.Instance.LoggedInPlayer;
-                        //gameServicesClient.initMatchGame(user.PlayerID, selectedMatch.MatchID);
+                        gameServicesClient.initMatch(user.PlayerID, selectedMatch.MatchID);
                         string message = Properties.Resources.JoinGameMessage;
-                        MessageBox.Show(message);
+                        ShowMessage(message, 1);
                         dispatcherTimer.Stop();
-                        //NavigationService.Navigate(new InGame(selectedMatch));
+                        NavigationService.Navigate(new ChallengerView(selectedMatch));
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         string message = Properties.Resources.JoinMatchErrorMessage;
-                        MessageBox.Show(message);
+                        ShowMessage(message, 3);
                     }
                 }
             }
@@ -244,9 +242,15 @@ namespace HangedMan_Client.Views
             {
                 Category selectedCategory = (Category)cbxCategory.SelectedItem;
                 int categoryId = selectedCategory.CategoryID;
-
                 await ChargeWordsPerCategory(categoryId);
             }
+        }
+
+        private void ShowMessage(string message, int type)
+        {
+            var dialog = new MessageBoxInformation(message, type);
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.ShowDialog();
         }
     }
 }

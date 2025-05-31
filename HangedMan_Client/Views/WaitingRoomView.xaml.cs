@@ -26,11 +26,13 @@ namespace HangedMan_Client.Views
 
         private void BtnLeaveMatch_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Deseas abandonar la partida?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            string message = Properties.Resources.LeaveMatchConfirmation;
+            var dialog = new QuestionMessage(message);
+            dialog.Owner = Application.Current.MainWindow;
+            bool? result = dialog.ShowDialog();
 
-            if (result == MessageBoxResult.Yes)
+            if (result == true)
             {
-
                 LeaveMatch();
             }
         }
@@ -44,20 +46,20 @@ namespace HangedMan_Client.Views
                 if (exit)
                 {
                     string message = Properties.Resources.MatchLeaveMessage;
-                    MessageBox.Show(message);
+                    ShowMessage(message, 1);
                     NavigationService.Navigate(new LobbyView());
 
                 }
                 else
                 {
                     string message = Properties.Resources.MatchLeaveMessageError;
-                    MessageBox.Show(message);
+                    ShowMessage(message, 3);
                 }
 
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                ShowMessage(e.Message, 3);
             }
         }
 
@@ -84,6 +86,13 @@ namespace HangedMan_Client.Views
                 };
                 delayTimer.Start();
             }
+        }
+
+        private void ShowMessage(string message, int type)
+        {
+            var dialog = new MessageBoxInformation(message, type);
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.ShowDialog();
         }
     }
 }

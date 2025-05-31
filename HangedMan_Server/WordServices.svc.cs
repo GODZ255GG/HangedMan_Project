@@ -37,5 +37,11 @@ namespace HangedMan_Server
         {
             return WordDTO.getWordsPerCategory(category);
         }
+
+        public string getCategoryByWordID(int wordID, int matchLanguage)
+        {
+            return Model.DTO.WordDTO.getCategoryByWordID(wordID, matchLanguage);
+        }
+
     }
 }

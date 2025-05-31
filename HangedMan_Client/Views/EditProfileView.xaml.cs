@@ -1,5 +1,6 @@
 ﻿using HangedMan_Client.PlayerServices;
 using System;
+using System.ServiceModel.Channels;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,15 +34,17 @@ namespace HangedMan_Client.Views
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            string message = Properties.Resources.CancelModifyHead;
             string messageConfirm = Properties.Resources.CancelModifyConfirmation;
-            MessageBoxResult result = MessageBox.Show(messageConfirm, message, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var dialog = new QuestionMessage(messageConfirm);
+            dialog.Owner = Application.Current.MainWindow;
+            bool? result = dialog.ShowDialog();
 
-            if (result == MessageBoxResult.Yes)
+            if (result == true)
             {
                 NavigationService.Navigate(new ProfileView());
             }
         }
+
 
         private async void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
@@ -66,25 +69,25 @@ namespace HangedMan_Client.Views
                                 if (confirmation)
                                 {
                                     string message = Properties.Resources.ConfirmationModify;
-                                    MessageBox.Show(message);
+                                    ShowMessage(message, 1);
                                     NavigationService.Navigate(new ProfileView());                                    
                                 }
                                 else
                                 {
                                     string message = Properties.Resources.ErrorModify;
-                                    MessageBox.Show(message);
+                                    ShowMessage(message, 3);
                                 }
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show(ex.Message);
+                                ShowMessage(ex.Message, 3);
                             }
                         }
                     }
                     else
                     {
                         string message = Properties.Resources.PasswordDoesntMatch;
-                        MessageBox.Show(message);
+                        ShowMessage(message, 2);
                     }
                 }
             }
@@ -215,7 +218,7 @@ namespace HangedMan_Client.Views
             else
             {
                 string message = Properties.Resources.NamesNotValid;
-                MessageBox.Show(message);
+                ShowMessage(message, 2);
                 return false;
             }
         }
@@ -225,7 +228,7 @@ namespace HangedMan_Client.Views
             string message = Properties.Resources.PhoneNotValid;
             if (phone.Length != 10)
             {
-                MessageBox.Show(message);
+                ShowMessage(message, 2);
                 return false;
             }
 
@@ -233,7 +236,7 @@ namespace HangedMan_Client.Views
             {
                 if (!char.IsDigit(c))
                 {
-                    MessageBox.Show(message);
+                    ShowMessage(message, 2);
                     txtTelephone.Clear();
                     return false;
                 }
@@ -252,7 +255,7 @@ namespace HangedMan_Client.Views
             else
             {
 
-                MessageBox.Show(message);
+                ShowMessage(message, 2);
                 return false;
             }
         }
@@ -266,7 +269,7 @@ namespace HangedMan_Client.Views
             }
             else
             {
-                MessageBox.Show(message);
+                ShowMessage(message, 2);
                 return false;
             }
         }
@@ -280,9 +283,16 @@ namespace HangedMan_Client.Views
             }
             else
             {
-                MessageBox.Show(message);
+                ShowMessage(message, 2);
                 return false;
             }
+        }
+
+        private void ShowMessage(string message, int type)
+        {
+            var dialog = new MessageBoxInformation(message, type);
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.ShowDialog();
         }
     }
 }

@@ -43,6 +43,12 @@
   <wsdl:message name="IWordServices_getClueEnglish_OutputMessage">
     <wsdl:part name="parameters" element="tns:getClueEnglishResponse" />
   </wsdl:message>
+  <wsdl:message name="IWordServices_getCategoryByWordID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCategoryByWordID" />
+  </wsdl:message>
+  <wsdl:message name="IWordServices_getCategoryByWordID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCategoryByWordIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="IWordServices">
     <wsdl:operation name="GetCategories">
       <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/GetCategories" message="tns:IWordServices_GetCategories_InputMessage" />
@@ -67,6 +73,10 @@
     <wsdl:operation name="getClueEnglish">
       <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/getClueEnglish" message="tns:IWordServices_getClueEnglish_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/getClueEnglishResponse" message="tns:IWordServices_getClueEnglish_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryByWordID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWordServices/getCategoryByWordID" message="tns:IWordServices_getCategoryByWordID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWordServices/getCategoryByWordIDResponse" message="tns:IWordServices_getCategoryByWordID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IWordServices" type="tns:IWordServices">
@@ -118,6 +128,15 @@
     </wsdl:operation>
     <wsdl:operation name="getClueEnglish">
       <soap:operation soapAction="http://tempuri.org/IWordServices/getClueEnglish" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryByWordID">
+      <soap:operation soapAction="http://tempuri.org/IWordServices/getCategoryByWordID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

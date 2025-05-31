@@ -34,5 +34,10 @@ namespace HangedMan_Server
         {
             return PlayerDTO.updatePlayerProfile(updatePlayer);
         }
+
+        public int GetPoints(int playerID)
+        {
+            return PlayerDTO.GetPoints(playerID);
+        }
     }
 }

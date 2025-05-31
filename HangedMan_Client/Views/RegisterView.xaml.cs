@@ -133,17 +133,17 @@ namespace HangedMan_Client.Views
                             if (await playerServicesClient.nicknameAlreadyRegisteredAsync(txtNickname.Text))
                             {
                                 string message = Properties.Resources.NicknameAlreadyRegistered;
-                                MessageBox.Show(message);
+                                ShowMessage(message, 2);
                             }
                             else if (await playerServicesClient.emailAlreadyRegisteredAsync(txtEmail.Text))
                             {
                                 string message = Properties.Resources.EmailAlreadyRegistered;
-                                MessageBox.Show(message);
+                                ShowMessage(message, 2);
                             }
                             else if (await playerServicesClient.telephoneAlreadyExistAsync(txtTelephone.Text))
                             {
                                 string message = Properties.Resources.TelephoneAlreadyRegistered;
-                                MessageBox.Show(message);
+                                ShowMessage(message, 2);
                             }
                             else
                             {
@@ -154,18 +154,18 @@ namespace HangedMan_Client.Views
                                     if (confirmation)
                                     {
                                         string message = Properties.Resources.ConfirmationUserRegister;
-                                        MessageBox.Show(message);
+                                        ShowMessage(message, 1);
                                         mainWindow.goToLoginView();
                                     }
                                     else
                                     {
                                         string message = Properties.Resources.ErrorUserRegister;
-                                        MessageBox.Show(message);
+                                        ShowMessage(message, 3);
                                     }
                                 }
                                 catch (Exception ex)
                                 {
-                                    MessageBox.Show("Error: " + ex.Message);
+                                    ShowMessage(ex.Message, 3);
                                 }
                             }
                         }
@@ -219,7 +219,7 @@ namespace HangedMan_Client.Views
             else
             {
                 string message = Properties.Resources.NamesNotValid;
-                MessageBox.Show(message);
+                ShowMessage(message, 2);
                 return false;
             }
         }
@@ -237,7 +237,7 @@ namespace HangedMan_Client.Views
             {
                 if (!char.IsDigit(c))
                 {
-                    MessageBox.Show(message);
+                    ShowMessage(message, 2);
                     txtTelephone.Clear();
                     return false;
                 }
@@ -256,7 +256,7 @@ namespace HangedMan_Client.Views
             else
             {
 
-                MessageBox.Show(message);
+                ShowMessage(message, 2);
                 return false;
             }
         }
@@ -270,7 +270,7 @@ namespace HangedMan_Client.Views
             }
             else
             {
-                MessageBox.Show(message);
+                ShowMessage(message, 2);
                 return false;
             }
         }
@@ -284,7 +284,7 @@ namespace HangedMan_Client.Views
             }
             else
             {
-                MessageBox.Show(message);
+                ShowMessage(message, 2);
                 return false;
             }
         }
@@ -302,6 +302,13 @@ namespace HangedMan_Client.Views
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.goToLoginView();
+        }
+
+        private void ShowMessage(string message, int type)
+        {
+            var dialog = new MessageBoxInformation(message, type);
+            dialog.Owner = Application.Current.MainWindow;
+            dialog.ShowDialog();
         }
     }
 }

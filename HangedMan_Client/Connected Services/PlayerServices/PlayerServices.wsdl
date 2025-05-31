@@ -43,6 +43,12 @@
   <wsdl:message name="IPlayerServices_updatePlayerProfile_OutputMessage">
     <wsdl:part name="parameters" element="tns:updatePlayerProfileResponse" />
   </wsdl:message>
+  <wsdl:message name="IPlayerServices_GetPoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPoints" />
+  </wsdl:message>
+  <wsdl:message name="IPlayerServices_GetPoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPointsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPlayerServices">
     <wsdl:operation name="registerPlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/registerPlayer" message="tns:IPlayerServices_registerPlayer_InputMessage" />
@@ -67,6 +73,10 @@
     <wsdl:operation name="updatePlayerProfile">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/updatePlayerProfile" message="tns:IPlayerServices_updatePlayerProfile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/updatePlayerProfileResponse" message="tns:IPlayerServices_updatePlayerProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPoints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlayerServices/GetPoints" message="tns:IPlayerServices_GetPoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlayerServices/GetPointsResponse" message="tns:IPlayerServices_GetPoints_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPlayerServices" type="tns:IPlayerServices">
@@ -118,6 +128,15 @@
     </wsdl:operation>
     <wsdl:operation name="updatePlayerProfile">
       <soap:operation soapAction="http://tempuri.org/IPlayerServices/updatePlayerProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPoints">
+      <soap:operation soapAction="http://tempuri.org/IPlayerServices/GetPoints" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

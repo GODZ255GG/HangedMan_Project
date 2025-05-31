@@ -160,5 +160,258 @@ namespace HangedMan_Server.Model.DTO
                 throw ex;
             }
         }
+
+        public static bool finishMatch(int matchID)
+        {
+            try
+            {
+                var connection = ConnectionDB.getConnection();
+                connection.Open();
+                DataContext dataContext = new DataContext(connection);
+                var matchToLeave = dataContext.GetTable<Match>().FirstOrDefault(mat => mat.MatchID == matchID);
+                if (matchToLeave != null)
+                {
+                    matchToLeave.StatusMatchID = 3;
+                    dataContext.SubmitChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public static bool updateCharBD(char letter, int matchID)
+        {
+            try
+            {
+                var connection = ConnectionDB.getConnection();
+                connection.Open();
+                DataContext dataContext = new DataContext(connection);
+                var charUpdate = dataContext.GetTable<Match>().FirstOrDefault(mat => mat.MatchID == matchID);
+                if (charUpdate != null)
+                {
+                    charUpdate.SelectedLetter = letter;
+                    dataContext.SubmitChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool updateWinner(int playerID, int matchID)
+        {
+            try
+            {
+                using (var connection = ConnectionDB.getConnection())
+                {
+                    connection.Open();
+                    DataContext dataContext = new DataContext(connection);
+                    var updateWinner = dataContext.GetTable<Match>().FirstOrDefault(mat => mat.MatchID == matchID);
+                    if (updateWinner != null)
+                    {
+                        updateWinner.WinnerID = playerID;
+                        dataContext.SubmitChanges();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool updateRemainingAttempts(int remainingAttempts, int matchID)
+        {
+            try
+            {
+                using (var connection = ConnectionDB.getConnection())
+                {
+                    connection.Open();
+                    DataContext dataContext = new DataContext(connection);
+                    var updateAttempts = dataContext.GetTable<Match>().FirstOrDefault(mat => mat.MatchID == matchID);
+                    if (updateAttempts != null)
+                    {
+                        updateAttempts.RemainingAttempts = remainingAttempts;
+                        dataContext.SubmitChanges();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static int getMatchStatus(int matchID)
+        {
+            try
+            {
+                using (var connection = ConnectionDB.getConnection())
+                {
+                    connection.Open();
+                    DataContext dataContext = new DataContext(connection);
+                    var status = (from sta in dataContext.GetTable<Match>()
+                                  where sta.MatchID == matchID
+                                  select sta.StatusMatchID).FirstOrDefault();
+                    return status;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static char? getGuestLetter(int matchID)
+        {
+            try
+            {
+                using (var connection = ConnectionDB.getConnection())
+                {
+                    connection.Open();
+                    DataContext dataContext = new DataContext(connection);
+                    var letter = (from lett in dataContext.GetTable<Match>()
+                                  where lett.MatchID == matchID && lett.GuestID != null
+                                  select lett.SelectedLetter).FirstOrDefault();
+                    return letter;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static int getRemainingAttempts(int matchID)
+        {
+            try
+            {
+                using (var connection = ConnectionDB.getConnection())
+                {
+                    connection.Open();
+                    DataContext dataContext = new DataContext(connection);
+                    var attempts = (from at in dataContext.GetTable<Match>()
+                                    where at.MatchID == matchID
+                                    select at.RemainingAttempts).FirstOrDefault();
+                    return attempts;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void UpdatePointsEarned(int matchID, int playerID)
+        {
+            try
+            {
+                using (var connection = ConnectionDB.getConnection())
+                {
+                    connection.Open();
+                    DataContext dataContext = new DataContext(connection);
+
+                    var match = (from m in dataContext.GetTable<Match>()
+                                 where m.MatchID == matchID
+                                 select m).FirstOrDefault();
+
+                    if (match == null || match.WinnerID == null)
+                        return;
+
+                    var player = (from p in dataContext.GetTable<Player>()
+                                  where p.PlayerID == playerID
+                                  select p).FirstOrDefault();
+
+                    if (player == null)
+                        return;
+
+                    if (match.WinnerID == match.ChallengerID && playerID == match.ChallengerID)
+                    {
+                        player.PointsEarned += 5;
+                    }
+                    else if (match.WinnerID == match.GuestID && playerID == match.GuestID)
+                    {
+                        player.PointsEarned += 10;
+                    }
+
+                    dataContext.SubmitChanges();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void PenalizeAbandon(int playerID)
+        {
+            try
+            {
+                using (var connection = ConnectionDB.getConnection())
+                {
+                    connection.Open();
+                    DataContext dataContext = new DataContext(connection);
+
+                    var player = (from p in dataContext.GetTable<Player>()
+                                  where p.PlayerID == playerID
+                                  select p).FirstOrDefault();
+
+                    if (player == null)
+                        return;
+
+                    player.PointsEarned -= 3;
+                    dataContext.SubmitChanges();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public static int? getWinnerID(int matchID)
+        {
+            try
+            {
+                using (var connection = ConnectionDB.getConnection())
+                {
+                    connection.Open();
+                    DataContext dataContext = new DataContext(connection);
+                    var winnerId = (from mat in dataContext.GetTable<Match>()
+                                    where mat.MatchID == matchID
+                                    select mat.WinnerID).FirstOrDefault();
+                    return winnerId;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

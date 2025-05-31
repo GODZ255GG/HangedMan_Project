@@ -682,7 +682,7 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El invitado adivino la palabra, perdiste!.
+        ///   Busca una cadena traducida similar a Lo siento, el invitado adivinó la palabra..
         /// </summary>
         public static string LosserChallengerMessage {
             get {
@@ -1069,7 +1069,7 @@ namespace HangedMan_Client.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El invitado no adivino la palabra, ganaste!.
+        ///   Busca una cadena traducida similar a El invitado no adivinó la palabra..
         /// </summary>
         public static string WinnerMatchMessageChallenger {
             get {

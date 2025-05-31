@@ -313,7 +313,7 @@
     <value>Deseas salir del juego? </value>
   </data>
   <data name="LosserChallengerMessage" xml:space="preserve">
-    <value>El invitado adivino la palabra, perdiste!</value>
+    <value>Lo siento, el invitado adivinó la palabra.</value>
   </data>
   <data name="LosserMatchMessage" xml:space="preserve">
     <value>Perdiste!</value>
@@ -442,7 +442,7 @@
     <value>Por favor selecciona la categoria y la palabra!</value>
   </data>
   <data name="WinnerMatchMessageChallenger" xml:space="preserve">
-    <value>El invitado no adivino la palabra, ganaste!</value>
+    <value>El invitado no adivinó la palabra.</value>
   </data>
   <data name="WinnerMatchMessageGuest" xml:space="preserve">
     <value>Adivinaste la palabra, Ganaste!</value>

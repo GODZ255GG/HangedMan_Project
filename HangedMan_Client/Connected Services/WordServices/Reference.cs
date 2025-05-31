@@ -254,6 +254,12 @@ namespace HangedMan_Client.WordServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/getClueEnglish", ReplyAction="http://tempuri.org/IWordServices/getClueEnglishResponse")]
         System.Threading.Tasks.Task<string> getClueEnglishAsync(int wordID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/getCategoryByWordID", ReplyAction="http://tempuri.org/IWordServices/getCategoryByWordIDResponse")]
+        string getCategoryByWordID(int wordID, int matchLanguage);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWordServices/getCategoryByWordID", ReplyAction="http://tempuri.org/IWordServices/getCategoryByWordIDResponse")]
+        System.Threading.Tasks.Task<string> getCategoryByWordIDAsync(int wordID, int matchLanguage);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -329,6 +335,14 @@ namespace HangedMan_Client.WordServices {
         
         public System.Threading.Tasks.Task<string> getClueEnglishAsync(int wordID) {
             return base.Channel.getClueEnglishAsync(wordID);
+        }
+        
+        public string getCategoryByWordID(int wordID, int matchLanguage) {
+            return base.Channel.getCategoryByWordID(wordID, matchLanguage);
+        }
+        
+        public System.Threading.Tasks.Task<string> getCategoryByWordIDAsync(int wordID, int matchLanguage) {
+            return base.Channel.getCategoryByWordIDAsync(wordID, matchLanguage);
         }
     }
 }

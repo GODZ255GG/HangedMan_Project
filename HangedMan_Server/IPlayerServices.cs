@@ -18,5 +18,7 @@ namespace HangedMan_Server
         Player logIn(string email, string password);
         [OperationContract]
         bool updatePlayerProfile(Player updatePlayer);
+        [OperationContract]
+        int GetPoints(int playerID);
     }
 }

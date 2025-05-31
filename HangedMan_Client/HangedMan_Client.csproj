@@ -102,14 +102,23 @@
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LossDialog.xaml.cs">
+      <DependentUpon>LossDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MatchHistoryView.xaml.cs">
       <DependentUpon>MatchHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageBoxInformation.xaml.cs">
+      <DependentUpon>MessageBoxInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProfileDialog.xaml.cs">
       <DependentUpon>ProfileDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuestionMessage.xaml.cs">
+      <DependentUpon>QuestionMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
@@ -148,7 +157,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\LossDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MatchHistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MessageBoxInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProfileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QuestionMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -263,6 +284,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -361,6 +383,13 @@
     <Resource Include="Resources\4.jpg" />
     <Resource Include="Resources\5.jpg" />
     <Resource Include="Resources\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconLoss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\iconInformation.png" />
+    <Resource Include="Resources\iconWarning.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

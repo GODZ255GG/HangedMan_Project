@@ -42,5 +42,55 @@ namespace HangedMan_Server
         {
             return MatchDTO.leaveMatch(matchID);
         }
+
+        public bool finishMatch(int matchID)
+        {
+            return MatchDTO.finishMatch(matchID);
+        }
+
+        public char? getGuestLetter(int matchID)
+        {
+            return MatchDTO.getGuestLetter(matchID);
+        }
+
+        public int getMatchStatus(int matchID)
+        {
+            return MatchDTO.getMatchStatus(matchID);
+        }
+
+        public int getRemainingAttempts(int matchID)
+        {
+            return MatchDTO.getRemainingAttempts(matchID);
+        }
+
+        public bool updateCharBD(char letter, int matchID)
+        {
+            return MatchDTO.updateCharBD(letter, matchID);
+        }
+
+        public void UpdatePointsEarned(int matchID, int playerID)
+        {
+            MatchDTO.UpdatePointsEarned(matchID, playerID);
+        }
+
+        public void PenalizeAbandon(int playerID)
+        {
+            MatchDTO.PenalizeAbandon(playerID);
+        }
+
+        public bool updateRemainingAttempts(int remainingAttempts, int matchID)
+        {
+            return MatchDTO.updateRemainingAttempts(remainingAttempts, matchID);
+        }
+
+        public bool updateWinner(int playerID, int matchID)
+        {
+            return MatchDTO.updateWinner(playerID, matchID);
+        }
+
+        public int? getWinnerID(int matchID)
+        {
+            return Model.DTO.MatchDTO.getWinnerID(matchID);
+        }
     }
 }
