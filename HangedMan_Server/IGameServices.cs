@@ -9,38 +9,38 @@ namespace HangedMan_Server
     public interface IGameServices
     {
         [OperationContract]
-        Match createMatch(Match createMatch);
+        Match CreateMatch(Match createMatch);
         [OperationContract]
-        List<Match> getMatchList(int playerID);
+        List<Match> GetMatchList(int playerID);
         [OperationContract]
-        List<Match> getMatchesPlayed(int playerID);
+        List<Match> GetMatchesPlayed(int playerID);
         [OperationContract]
-        bool initMatch(int guestID, int matchID);
+        bool InitMatch(int guestID, int matchID);
         [OperationContract]
-        string getGuestNickName(int playerID);
+        string GetGuestNickName(int playerID);
         [OperationContract]
-        bool isThereGuest(int matchID);
+        bool IsThereGuest(int matchID);
         [OperationContract]
-        bool leaveMatch(int matchID);
+        bool LeaveMatch(int matchID);
         [OperationContract]
-        char? getGuestLetter(int matchID);
+        char? GetGuestLetter(int matchID);
         [OperationContract]
-        int getRemainingAttempts(int matchID);
+        int GetRemainingAttempts(int matchID);
         [OperationContract]
         void UpdatePointsEarned(int matchID, int playerID);
         [OperationContract]
         void PenalizeAbandon(int playerID);
         [OperationContract]
-        bool finishMatch(int matchID);
+        bool FinishMatch(int matchID);
         [OperationContract]
-        bool updateCharBD(char letter, int matchID);
+        bool UpdateCharBD(char letter, int matchID);
         [OperationContract]
-        int getMatchStatus(int matchID);
+        int GetMatchStatus(int matchID);
         [OperationContract]
-        bool updateRemainingAttempts(int remainingAttempts, int matchID);
+        bool UpdateRemainingAttempts(int remainingAttempts, int matchID);
         [OperationContract]
-        bool updateWinner(int playerID, int matchID);
+        bool UpdateWinner(int playerID, int matchID);
         [OperationContract]
-        int? getWinnerID(int matchID);
+        int? GetWinnerID(int matchID);
     }
 }

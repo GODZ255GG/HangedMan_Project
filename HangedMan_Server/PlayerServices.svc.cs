@@ -5,34 +5,34 @@ namespace HangedMan_Server
 {
     public class PlayerServices : IPlayerServices
     {
-        public bool registerPlayer(Player newPlayer)
+        public bool RegisterPlayer(Player newPlayer)
         {
-            return PlayerDTO.registerPlayer(newPlayer);
+            return PlayerDTO.RegisterPlayer(newPlayer);
         }
 
-        public bool emailAlreadyRegistered(string email)
+        public bool EmailAlreadyRegistered(string email)
         {
-            return PlayerDTO.emailAlreadyRegistered(email);
+            return PlayerDTO.EmailAlreadyRegistered(email);
         }
 
-        public bool nicknameAlreadyRegistered(string nickname)
+        public bool NicknameAlreadyRegistered(string nickname)
         {
-            return PlayerDTO.nicknameAlreadyRegistered(nickname);
+            return PlayerDTO.NicknameAlreadyRegistered(nickname);
         }
 
-        public bool telephoneAlreadyExist(string telephone)
+        public bool TelephoneAlreadyExist(string telephone)
         {
-            return PlayerDTO.telephoneAlreadyRegistered(telephone);
+            return PlayerDTO.TelephoneAlreadyRegistered(telephone);
         }
 
-        public Player logIn(string email, string password)
+        public Player LogIn(string email, string password)
         {
-            return PlayerDTO.logIn(email, password);
+            return PlayerDTO.LogIn(email, password);
         }
 
-        public bool updatePlayerProfile(Player updatePlayer)
+        public bool UpdatePlayerProfile(Player updatePlayer)
         {
-            return PlayerDTO.updatePlayerProfile(updatePlayer);
+            return PlayerDTO.UpdatePlayerProfile(updatePlayer);
         }
 
         public int GetPoints(int playerID)

@@ -8,64 +8,64 @@ namespace HangedMan_Server
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione GameServices.svc o GameServices.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class GameServices : IGameServices
     {
-        public Match createMatch(Match createMatch)
+        public Match CreateMatch(Match createMatch)
         {
-            return MatchDTO.createMatch(createMatch);
+            return MatchDTO.CreateMatch(createMatch);
         }
 
-        public List<Match> getMatchesPlayed(int playerID)
+        public List<Match> GetMatchesPlayed(int playerID)
         {
-            return MatchDTO.getMatchesPlayed(playerID);
+            return MatchDTO.GetMatchesPlayed(playerID);
         }
 
-        public List<Match> getMatchList(int playerID)
+        public List<Match> GetMatchList(int playerID)
         {
-            return MatchDTO.getMatchesAvaliables(playerID);
+            return MatchDTO.GetMatchesAvaliables(playerID);
         }
 
-        public bool initMatch(int guestID, int matchID)
+        public bool InitMatch(int guestID, int matchID)
         {
-            return MatchDTO.initMatch(guestID, matchID);
+            return MatchDTO.InitMatch(guestID, matchID);
         }
 
-        public string getGuestNickName(int playerID)
+        public string GetGuestNickName(int playerID)
         {
-            return MatchDTO.getGuestNickName(playerID);
+            return MatchDTO.GetGuestNickName(playerID);
         }
 
-        public bool isThereGuest(int matchID)
+        public bool IsThereGuest(int matchID)
         {
-            return MatchDTO.isThereGuest(matchID);
+            return MatchDTO.IsThereGuest(matchID);
         }
 
-        public bool leaveMatch(int matchID)
+        public bool LeaveMatch(int matchID)
         {
-            return MatchDTO.leaveMatch(matchID);
+            return MatchDTO.LeaveMatch(matchID);
         }
 
-        public bool finishMatch(int matchID)
+        public bool FinishMatch(int matchID)
         {
-            return MatchDTO.finishMatch(matchID);
+            return MatchDTO.FinishMatch(matchID);
         }
 
-        public char? getGuestLetter(int matchID)
+        public char? GetGuestLetter(int matchID)
         {
-            return MatchDTO.getGuestLetter(matchID);
+            return MatchDTO.GetGuestLetter(matchID);
         }
 
-        public int getMatchStatus(int matchID)
+        public int GetMatchStatus(int matchID)
         {
-            return MatchDTO.getMatchStatus(matchID);
+            return MatchDTO.GetMatchStatus(matchID);
         }
 
-        public int getRemainingAttempts(int matchID)
+        public int GetRemainingAttempts(int matchID)
         {
-            return MatchDTO.getRemainingAttempts(matchID);
+            return MatchDTO.GetRemainingAttempts(matchID);
         }
 
-        public bool updateCharBD(char letter, int matchID)
+        public bool UpdateCharBD(char letter, int matchID)
         {
-            return MatchDTO.updateCharBD(letter, matchID);
+            return MatchDTO.UpdateCharBD(letter, matchID);
         }
 
         public void UpdatePointsEarned(int matchID, int playerID)
@@ -78,19 +78,19 @@ namespace HangedMan_Server
             MatchDTO.PenalizeAbandon(playerID);
         }
 
-        public bool updateRemainingAttempts(int remainingAttempts, int matchID)
+        public bool UpdateRemainingAttempts(int remainingAttempts, int matchID)
         {
-            return MatchDTO.updateRemainingAttempts(remainingAttempts, matchID);
+            return MatchDTO.UpdateRemainingAttempts(remainingAttempts, matchID);
         }
 
-        public bool updateWinner(int playerID, int matchID)
+        public bool UpdateWinner(int playerID, int matchID)
         {
-            return MatchDTO.updateWinner(playerID, matchID);
+            return MatchDTO.UpdateWinner(playerID, matchID);
         }
 
-        public int? getWinnerID(int matchID)
+        public int? GetWinnerID(int matchID)
         {
-            return Model.DTO.MatchDTO.getWinnerID(matchID);
+            return Model.DTO.MatchDTO.GetWinnerID(matchID);
         }
     }
 }

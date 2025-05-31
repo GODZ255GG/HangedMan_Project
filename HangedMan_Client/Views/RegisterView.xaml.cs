@@ -130,17 +130,17 @@ namespace HangedMan_Client.Views
                     {
                         if (allValidate())
                         {
-                            if (await playerServicesClient.nicknameAlreadyRegisteredAsync(txtNickname.Text))
+                            if (await playerServicesClient.NicknameAlreadyRegisteredAsync(txtNickname.Text))
                             {
                                 string message = Properties.Resources.NicknameAlreadyRegistered;
                                 ShowMessage(message, 2);
                             }
-                            else if (await playerServicesClient.emailAlreadyRegisteredAsync(txtEmail.Text))
+                            else if (await playerServicesClient.EmailAlreadyRegisteredAsync(txtEmail.Text))
                             {
                                 string message = Properties.Resources.EmailAlreadyRegistered;
                                 ShowMessage(message, 2);
                             }
-                            else if (await playerServicesClient.telephoneAlreadyExistAsync(txtTelephone.Text))
+                            else if (await playerServicesClient.TelephoneAlreadyExistAsync(txtTelephone.Text))
                             {
                                 string message = Properties.Resources.TelephoneAlreadyRegistered;
                                 ShowMessage(message, 2);
@@ -150,7 +150,7 @@ namespace HangedMan_Client.Views
                                 try
                                 {
                                     Player newPlayer = createNewPlayer();
-                                    bool confirmation = await playerServicesClient.registerPlayerAsync(newPlayer);
+                                    bool confirmation = await playerServicesClient.RegisterPlayerAsync(newPlayer);
                                     if (confirmation)
                                     {
                                         string message = Properties.Resources.ConfirmationUserRegister;

@@ -7,17 +7,17 @@ namespace HangedMan_Server
     public interface IPlayerServices
     {
         [OperationContract]
-        bool registerPlayer(Player newPlayer);
+        bool RegisterPlayer(Player newPlayer);
         [OperationContract]
-        bool emailAlreadyRegistered(string email);
+        bool EmailAlreadyRegistered(string email);
         [OperationContract]
-        bool nicknameAlreadyRegistered(string nickname);
+        bool NicknameAlreadyRegistered(string nickname);
         [OperationContract]
-        bool telephoneAlreadyExist(string telephone);
+        bool TelephoneAlreadyExist(string telephone);
         [OperationContract]
-        Player logIn(string email, string password);
+        Player LogIn(string email, string password);
         [OperationContract]
-        bool updatePlayerProfile(Player updatePlayer);
+        bool UpdatePlayerProfile(Player updatePlayer);
         [OperationContract]
         int GetPoints(int playerID);
     }

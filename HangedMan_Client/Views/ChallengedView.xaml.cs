@@ -44,7 +44,7 @@ namespace HangedMan_Client.Views
             dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
             dispatcherTimer.Tick += DispatcherTimer_Tick;
             dispatcherTimer.Start();
-            remainingAttempts = gameServices.getRemainingAttempts(match.MatchID);
+            remainingAttempts = gameServices.GetRemainingAttempts(match.MatchID);
             lblCounter.Content = remainingAttempts.ToString(); 
         }
 
@@ -61,7 +61,7 @@ namespace HangedMan_Client.Views
 
         private void getGuestLetter(Match matchID)
         {
-            guestSelectLetter = gameServices.getGuestLetter(match.MatchID);
+            guestSelectLetter = gameServices.GetGuestLetter(match.MatchID);
 
             if (guestSelectLetter.HasValue)
             {
@@ -72,7 +72,7 @@ namespace HangedMan_Client.Views
 
         private void updateImage()
         {
-            int newRemainingAttempts = gameServices.getRemainingAttempts(match.MatchID);
+            int newRemainingAttempts = gameServices.GetRemainingAttempts(match.MatchID);
             if (newRemainingAttempts != remainingAttempts)
             {
                 remainingAttempts = newRemainingAttempts;
@@ -84,7 +84,7 @@ namespace HangedMan_Client.Views
             {
                 matchFinished = true; 
                 dispatcherTimer.Stop();
-                gameServices.finishMatch(match.MatchID);
+                gameServices.FinishMatch(match.MatchID);
                 string message = Properties.Resources.WinnerMatchMessageChallenger;
                 var dialog = new WinDialog(message);
                 dialog.Owner = Application.Current.MainWindow;
@@ -179,11 +179,11 @@ namespace HangedMan_Client.Views
             {
                 if (match != null && match.MatchLanguage == 1)
                 {
-                    clueMatch = await wordServices.getClueSpanishAsync(match.WordID);
+                    clueMatch = await wordServices.GetClueSpanishAsync(match.WordID);
                 }
                 else if (match != null && match.MatchLanguage == 2)
                 {
-                    clueMatch = await wordServices.getClueEnglishAsync(match.WordID);
+                    clueMatch = await wordServices.GetClueEnglishAsync(match.WordID);
                 }
             }
             catch (Exception e)
@@ -200,11 +200,11 @@ namespace HangedMan_Client.Views
             {
                 if (match != null && match.MatchLanguage == 1)
                 {
-                    wordMatch = await wordServices.getWordSpanishAsync(match.WordID);
+                    wordMatch = await wordServices.GetWordSpanishAsync(match.WordID);
                 }
                 else if (match != null && match.MatchLanguage == 2)
                 {
-                    wordMatch = await wordServices.getWordEnglishAsync(match.WordID);
+                    wordMatch = await wordServices.GetWordEnglishAsync(match.WordID);
                 }
             }
             catch (Exception e)
@@ -218,7 +218,7 @@ namespace HangedMan_Client.Views
         {
             try
             {
-                string category = await Task.Run(() => wordServices.getCategoryByWordID(wordID, matchLanguage));
+                string category = await Task.Run(() => wordServices.GetCategoryByWordID(wordID, matchLanguage));
                 lblCategory.Content = category;
             }
             catch (Exception)
@@ -246,7 +246,7 @@ namespace HangedMan_Client.Views
             try
             {
                 Player player = SessionManager.Instance.LoggedInPlayer;
-                bool exit = gameServices.leaveMatch(match.MatchID);
+                bool exit = gameServices.LeaveMatch(match.MatchID);
                 if (exit)
                 {
                     gameServices.PenalizeAbandon(player.PlayerID);
@@ -271,8 +271,8 @@ namespace HangedMan_Client.Views
         {
             if (matchFinished) return;
 
-            int matchStatus = gameServices.getMatchStatus(match.MatchID);
-            int? winnerId = gameServices.getWinnerID(match.MatchID);
+            int matchStatus = gameServices.GetMatchStatus(match.MatchID);
+            int? winnerId = gameServices.GetWinnerID(match.MatchID);
 
             if (matchStatus == 3)
             {
@@ -299,7 +299,7 @@ namespace HangedMan_Client.Views
 
         private void checkGuestLeave()
         {
-            int matchStatus = gameServices.getMatchStatus(match.MatchID);
+            int matchStatus = gameServices.GetMatchStatus(match.MatchID);
             if (matchStatus == 2)
             {
                 dispatcherTimer.Stop();

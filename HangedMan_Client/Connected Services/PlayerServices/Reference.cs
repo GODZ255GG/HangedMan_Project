@@ -174,41 +174,41 @@ namespace HangedMan_Client.PlayerServices {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PlayerServices.IPlayerServices")]
     public interface IPlayerServices {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/registerPlayer", ReplyAction="http://tempuri.org/IPlayerServices/registerPlayerResponse")]
-        bool registerPlayer(HangedMan_Client.PlayerServices.Player newPlayer);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/RegisterPlayer", ReplyAction="http://tempuri.org/IPlayerServices/RegisterPlayerResponse")]
+        bool RegisterPlayer(HangedMan_Client.PlayerServices.Player newPlayer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/registerPlayer", ReplyAction="http://tempuri.org/IPlayerServices/registerPlayerResponse")]
-        System.Threading.Tasks.Task<bool> registerPlayerAsync(HangedMan_Client.PlayerServices.Player newPlayer);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/RegisterPlayer", ReplyAction="http://tempuri.org/IPlayerServices/RegisterPlayerResponse")]
+        System.Threading.Tasks.Task<bool> RegisterPlayerAsync(HangedMan_Client.PlayerServices.Player newPlayer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/emailAlreadyRegistered", ReplyAction="http://tempuri.org/IPlayerServices/emailAlreadyRegisteredResponse")]
-        bool emailAlreadyRegistered(string email);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/EmailAlreadyRegistered", ReplyAction="http://tempuri.org/IPlayerServices/EmailAlreadyRegisteredResponse")]
+        bool EmailAlreadyRegistered(string email);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/emailAlreadyRegistered", ReplyAction="http://tempuri.org/IPlayerServices/emailAlreadyRegisteredResponse")]
-        System.Threading.Tasks.Task<bool> emailAlreadyRegisteredAsync(string email);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/EmailAlreadyRegistered", ReplyAction="http://tempuri.org/IPlayerServices/EmailAlreadyRegisteredResponse")]
+        System.Threading.Tasks.Task<bool> EmailAlreadyRegisteredAsync(string email);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/nicknameAlreadyRegistered", ReplyAction="http://tempuri.org/IPlayerServices/nicknameAlreadyRegisteredResponse")]
-        bool nicknameAlreadyRegistered(string nickname);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/NicknameAlreadyRegistered", ReplyAction="http://tempuri.org/IPlayerServices/NicknameAlreadyRegisteredResponse")]
+        bool NicknameAlreadyRegistered(string nickname);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/nicknameAlreadyRegistered", ReplyAction="http://tempuri.org/IPlayerServices/nicknameAlreadyRegisteredResponse")]
-        System.Threading.Tasks.Task<bool> nicknameAlreadyRegisteredAsync(string nickname);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/NicknameAlreadyRegistered", ReplyAction="http://tempuri.org/IPlayerServices/NicknameAlreadyRegisteredResponse")]
+        System.Threading.Tasks.Task<bool> NicknameAlreadyRegisteredAsync(string nickname);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/telephoneAlreadyExist", ReplyAction="http://tempuri.org/IPlayerServices/telephoneAlreadyExistResponse")]
-        bool telephoneAlreadyExist(string telephone);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/TelephoneAlreadyExist", ReplyAction="http://tempuri.org/IPlayerServices/TelephoneAlreadyExistResponse")]
+        bool TelephoneAlreadyExist(string telephone);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/telephoneAlreadyExist", ReplyAction="http://tempuri.org/IPlayerServices/telephoneAlreadyExistResponse")]
-        System.Threading.Tasks.Task<bool> telephoneAlreadyExistAsync(string telephone);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/TelephoneAlreadyExist", ReplyAction="http://tempuri.org/IPlayerServices/TelephoneAlreadyExistResponse")]
+        System.Threading.Tasks.Task<bool> TelephoneAlreadyExistAsync(string telephone);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/logIn", ReplyAction="http://tempuri.org/IPlayerServices/logInResponse")]
-        HangedMan_Client.PlayerServices.Player logIn(string email, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/LogIn", ReplyAction="http://tempuri.org/IPlayerServices/LogInResponse")]
+        HangedMan_Client.PlayerServices.Player LogIn(string email, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/logIn", ReplyAction="http://tempuri.org/IPlayerServices/logInResponse")]
-        System.Threading.Tasks.Task<HangedMan_Client.PlayerServices.Player> logInAsync(string email, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/LogIn", ReplyAction="http://tempuri.org/IPlayerServices/LogInResponse")]
+        System.Threading.Tasks.Task<HangedMan_Client.PlayerServices.Player> LogInAsync(string email, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/updatePlayerProfile", ReplyAction="http://tempuri.org/IPlayerServices/updatePlayerProfileResponse")]
-        bool updatePlayerProfile(HangedMan_Client.PlayerServices.Player updatePlayer);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/UpdatePlayerProfile", ReplyAction="http://tempuri.org/IPlayerServices/UpdatePlayerProfileResponse")]
+        bool UpdatePlayerProfile(HangedMan_Client.PlayerServices.Player updatePlayer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/updatePlayerProfile", ReplyAction="http://tempuri.org/IPlayerServices/updatePlayerProfileResponse")]
-        System.Threading.Tasks.Task<bool> updatePlayerProfileAsync(HangedMan_Client.PlayerServices.Player updatePlayer);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/UpdatePlayerProfile", ReplyAction="http://tempuri.org/IPlayerServices/UpdatePlayerProfileResponse")]
+        System.Threading.Tasks.Task<bool> UpdatePlayerProfileAsync(HangedMan_Client.PlayerServices.Player updatePlayer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlayerServices/GetPoints", ReplyAction="http://tempuri.org/IPlayerServices/GetPointsResponse")]
         int GetPoints(int playerID);
@@ -244,52 +244,52 @@ namespace HangedMan_Client.PlayerServices {
                 base(binding, remoteAddress) {
         }
         
-        public bool registerPlayer(HangedMan_Client.PlayerServices.Player newPlayer) {
-            return base.Channel.registerPlayer(newPlayer);
+        public bool RegisterPlayer(HangedMan_Client.PlayerServices.Player newPlayer) {
+            return base.Channel.RegisterPlayer(newPlayer);
         }
         
-        public System.Threading.Tasks.Task<bool> registerPlayerAsync(HangedMan_Client.PlayerServices.Player newPlayer) {
-            return base.Channel.registerPlayerAsync(newPlayer);
+        public System.Threading.Tasks.Task<bool> RegisterPlayerAsync(HangedMan_Client.PlayerServices.Player newPlayer) {
+            return base.Channel.RegisterPlayerAsync(newPlayer);
         }
         
-        public bool emailAlreadyRegistered(string email) {
-            return base.Channel.emailAlreadyRegistered(email);
+        public bool EmailAlreadyRegistered(string email) {
+            return base.Channel.EmailAlreadyRegistered(email);
         }
         
-        public System.Threading.Tasks.Task<bool> emailAlreadyRegisteredAsync(string email) {
-            return base.Channel.emailAlreadyRegisteredAsync(email);
+        public System.Threading.Tasks.Task<bool> EmailAlreadyRegisteredAsync(string email) {
+            return base.Channel.EmailAlreadyRegisteredAsync(email);
         }
         
-        public bool nicknameAlreadyRegistered(string nickname) {
-            return base.Channel.nicknameAlreadyRegistered(nickname);
+        public bool NicknameAlreadyRegistered(string nickname) {
+            return base.Channel.NicknameAlreadyRegistered(nickname);
         }
         
-        public System.Threading.Tasks.Task<bool> nicknameAlreadyRegisteredAsync(string nickname) {
-            return base.Channel.nicknameAlreadyRegisteredAsync(nickname);
+        public System.Threading.Tasks.Task<bool> NicknameAlreadyRegisteredAsync(string nickname) {
+            return base.Channel.NicknameAlreadyRegisteredAsync(nickname);
         }
         
-        public bool telephoneAlreadyExist(string telephone) {
-            return base.Channel.telephoneAlreadyExist(telephone);
+        public bool TelephoneAlreadyExist(string telephone) {
+            return base.Channel.TelephoneAlreadyExist(telephone);
         }
         
-        public System.Threading.Tasks.Task<bool> telephoneAlreadyExistAsync(string telephone) {
-            return base.Channel.telephoneAlreadyExistAsync(telephone);
+        public System.Threading.Tasks.Task<bool> TelephoneAlreadyExistAsync(string telephone) {
+            return base.Channel.TelephoneAlreadyExistAsync(telephone);
         }
         
-        public HangedMan_Client.PlayerServices.Player logIn(string email, string password) {
-            return base.Channel.logIn(email, password);
+        public HangedMan_Client.PlayerServices.Player LogIn(string email, string password) {
+            return base.Channel.LogIn(email, password);
         }
         
-        public System.Threading.Tasks.Task<HangedMan_Client.PlayerServices.Player> logInAsync(string email, string password) {
-            return base.Channel.logInAsync(email, password);
+        public System.Threading.Tasks.Task<HangedMan_Client.PlayerServices.Player> LogInAsync(string email, string password) {
+            return base.Channel.LogInAsync(email, password);
         }
         
-        public bool updatePlayerProfile(HangedMan_Client.PlayerServices.Player updatePlayer) {
-            return base.Channel.updatePlayerProfile(updatePlayer);
+        public bool UpdatePlayerProfile(HangedMan_Client.PlayerServices.Player updatePlayer) {
+            return base.Channel.UpdatePlayerProfile(updatePlayer);
         }
         
-        public System.Threading.Tasks.Task<bool> updatePlayerProfileAsync(HangedMan_Client.PlayerServices.Player updatePlayer) {
-            return base.Channel.updatePlayerProfileAsync(updatePlayer);
+        public System.Threading.Tasks.Task<bool> UpdatePlayerProfileAsync(HangedMan_Client.PlayerServices.Player updatePlayer) {
+            return base.Channel.UpdatePlayerProfileAsync(updatePlayer);
         }
         
         public int GetPoints(int playerID) {

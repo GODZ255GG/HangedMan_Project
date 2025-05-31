@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:56216/PlayerServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HangedMan_Server.Model.POCO" />
-  <xs:element name="registerPlayer">
+  <xs:element name="RegisterPlayer">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HangedMan_Server.Model.POCO" minOccurs="0" name="newPlayer" nillable="true" type="q1:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="registerPlayerResponse">
+  <xs:element name="RegisterPlayerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="registerPlayerResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="RegisterPlayerResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="emailAlreadyRegistered">
+  <xs:element name="EmailAlreadyRegistered">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="emailAlreadyRegisteredResponse">
+  <xs:element name="EmailAlreadyRegisteredResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="emailAlreadyRegisteredResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="EmailAlreadyRegisteredResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="nicknameAlreadyRegistered">
+  <xs:element name="NicknameAlreadyRegistered">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nickname" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="nicknameAlreadyRegisteredResponse">
+  <xs:element name="NicknameAlreadyRegisteredResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nicknameAlreadyRegisteredResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="NicknameAlreadyRegisteredResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="telephoneAlreadyExist">
+  <xs:element name="TelephoneAlreadyExist">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="telephone" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="telephoneAlreadyExistResponse">
+  <xs:element name="TelephoneAlreadyExistResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="telephoneAlreadyExistResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="TelephoneAlreadyExistResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="logIn">
+  <xs:element name="LogIn">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
@@ -65,24 +65,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="logInResponse">
+  <xs:element name="LogInResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HangedMan_Server.Model.POCO" minOccurs="0" name="logInResult" nillable="true" type="q2:Player" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HangedMan_Server.Model.POCO" minOccurs="0" name="LogInResult" nillable="true" type="q2:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="updatePlayerProfile">
+  <xs:element name="UpdatePlayerProfile">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HangedMan_Server.Model.POCO" minOccurs="0" name="updatePlayer" nillable="true" type="q3:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="updatePlayerProfileResponse">
+  <xs:element name="UpdatePlayerProfileResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="updatePlayerProfileResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdatePlayerProfileResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

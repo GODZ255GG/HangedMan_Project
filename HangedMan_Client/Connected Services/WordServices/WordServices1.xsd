@@ -27,63 +27,63 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getWordSpanish">
+  <xs:element name="GetWordSpanish">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="wordID" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getWordSpanishResponse">
+  <xs:element name="GetWordSpanishResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="getWordSpanishResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GetWordSpanishResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getWordEnglish">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="wordID" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getWordEnglishResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="getWordEnglishResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getClueSpanish">
+  <xs:element name="GetWordEnglish">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="wordID" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getClueSpanishResponse">
+  <xs:element name="GetWordEnglishResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="getClueSpanishResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GetWordEnglishResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getClueEnglish">
+  <xs:element name="GetClueSpanish">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="wordID" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getClueEnglishResponse">
+  <xs:element name="GetClueSpanishResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="getClueEnglishResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GetClueSpanishResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getCategoryByWordID">
+  <xs:element name="GetClueEnglish">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="wordID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClueEnglishResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetClueEnglishResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoryByWordID">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="wordID" type="xs:int" />
@@ -91,10 +91,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getCategoryByWordIDResponse">
+  <xs:element name="GetCategoryByWordIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="getCategoryByWordIDResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GetCategoryByWordIDResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

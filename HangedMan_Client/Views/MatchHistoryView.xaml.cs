@@ -32,7 +32,7 @@ namespace HangedMan_Client.Views
             {
                 // Mostrar puntos
                 var player = SessionManager.Instance.LoggedInPlayer;
-                var matches = await gameServicesClient.getMatchesPlayedAsync(player.PlayerID);
+                var matches = await gameServicesClient.GetMatchesPlayedAsync(player.PlayerID);
 
                 allHistoryItems = new List<MatchHistoryItem>();
 
@@ -147,7 +147,7 @@ namespace HangedMan_Client.Views
             if (match.ChallengerID == currentPlayerId)
             {
                 return match.GuestID.HasValue
-                    ? await gameServicesClient.getGuestNickNameAsync(match.GuestID.Value)
+                    ? await gameServicesClient.GetGuestNickNameAsync(match.GuestID.Value)
                     : Properties.Resources.WaitingForPlayer;
             }
             return match.NickNameChallenger;
@@ -158,8 +158,8 @@ namespace HangedMan_Client.Views
             try
             {
                 return match.MatchLanguage == 1
-                    ? await wordServicesClient.getWordSpanishAsync(match.WordID)
-                    : await wordServicesClient.getWordEnglishAsync(match.WordID);
+                    ? await wordServicesClient.GetWordSpanishAsync(match.WordID)
+                    : await wordServicesClient.GetWordEnglishAsync(match.WordID);
             }
             catch
             {
